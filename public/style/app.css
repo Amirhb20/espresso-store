@@ -7,9 +7,9 @@
       "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
-    --color-yellow-400: oklch(85.2% 0.199 91.936);
     --default-font-family: var(--font-sans);
     --default-mono-font-family: var(--font-mono);
+    --font-ReggaeOne-Regular: "ReggaeOne-Regular";
   }
 }
 @layer base {
@@ -169,6 +169,9 @@
   }
   .container {
     width: 100%;
+    @media (width >= 20.625rem) {
+      max-width: 20.625rem;
+    }
     @media (width >= 40rem) {
       max-width: 40rem;
     }
@@ -185,6 +188,13 @@
       max-width: 96rem;
     }
   }
+  .container {
+    width: 1760px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-left: auto;
+    margin-right: auto;
+  }
   .grid {
     display: grid;
   }
@@ -197,12 +207,49 @@
   .resize {
     resize: both;
   }
-  .text-yellow-400 {
-    color: var(--color-yellow-400);
-  }
   .backface-hidden {
     backface-visibility: hidden;
   }
+}
+@font-face {
+  font-family: "Outfit-Medium";
+  src: local("Outfit-Medium"), url(../fonts/Outfit-Medium.ttf), format(truetype);
+  font-display: swap;
+}
+@font-face {
+  font-family: "Outfit-Regular";
+  src: local("Outfit-Regular"), url(../fonts/Outfit-Regular.ttf), format(truetype);
+  font-display: swap;
+}
+@font-face {
+  font-family: "Outfit-SemiBold";
+  src: local("Outfit-SemiBold"), url(../fonts/Outfit-SemiBold.ttf), format(truetype);
+  font-display: swap;
+}
+@font-face {
+  font-family: "PlayfairDisplay-Bold";
+  src: local("PlayfairDisplay-Bold"), url(../fonts/PlayfairDisplay-Bold.ttf), format(truetype);
+  font-display: swap;
+}
+@font-face {
+  font-family: "PlayfairDisplay-SemiBold";
+  src: local("PlayfairDisplay-SemiBold"), url(../fonts/PlayfairDisplay-SemiBold.ttf), format(truetype);
+  font-display: swap;
+}
+@font-face {
+  font-family: "Poppins-Medium";
+  src: local("Poppins-Medium"), url(../fonts/Poppins-Medium.ttf), format(truetype);
+  font-display: swap;
+}
+@font-face {
+  font-family: "Poppins-SemiBold";
+  src: local("Poppins-SemiBold"), url(../fonts/Poppins-SemiBold.ttf), format(truetype);
+  font-display: swap;
+}
+@font-face {
+  font-family: "ReggaeOne-Regular";
+  src: local("ReggaeOne-Regular"), url(../fonts/ReggaeOne-Regular.ttf), format(truetype);
+  font-display: swap;
 }
 @property --tw-rotate-x {
   syntax: "*";

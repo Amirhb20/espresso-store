@@ -1,1 +1,70 @@
 @import "tailwindcss";
+@font-face {
+  font-family: "Outfit-Medium";
+  src: local("Outfit-Medium"), url(../fonts/Outfit-Medium.ttf), format(truetype);
+  font-display: swap;
+}
+@font-face {
+  font-family: "Outfit-Regular";
+  src: local("Outfit-Regular"), url(../fonts/Outfit-Regular.ttf), format(truetype);
+  font-display: swap;
+}
+@font-face {
+  font-family: "Outfit-SemiBold";
+  src: local("Outfit-SemiBold"), url(../fonts/Outfit-SemiBold.ttf), format(truetype);
+  font-display: swap;
+}
+@font-face {
+  font-family: "PlayfairDisplay-Bold";
+  src: local("PlayfairDisplay-Bold"), url(../fonts/PlayfairDisplay-Bold.ttf), format(truetype);
+  font-display: swap;
+}
+@font-face {
+  font-family: "PlayfairDisplay-SemiBold";
+  src: local("PlayfairDisplay-SemiBold"), url(../fonts/PlayfairDisplay-SemiBold.ttf), format(truetype);
+  font-display: swap;
+}
+@font-face {
+  font-family: "Poppins-Medium";
+  src: local("Poppins-Medium"), url(../fonts/Poppins-Medium.ttf), format(truetype);
+  font-display: swap;
+}
+@font-face {
+  font-family: "Poppins-SemiBold";
+  src: local("Poppins-SemiBold"), url(../fonts/Poppins-SemiBold.ttf), format(truetype);
+  font-display: swap;
+}
+@font-face {
+  font-family: "ReggaeOne-Regular";
+  src: local("ReggaeOne-Regular"), url(../fonts/ReggaeOne-Regular.ttf), format(truetype);
+  font-display: swap;
+}
+
+@theme {
+  /* colors */
+  --color-Dark-Walnut: #30261c;
+  --color-Cotton-Cream: #e2d9c8;
+  --color-Light-Taupe: #544a3e;
+  --color-Warm-Coffee: #2a0000;
+  --color-Off White-Gray: #F1F0EE;
+  /* font */
+  --font-Outfit-Medium : "Outfit-Medium";
+  --font-Outfit-Regular : "Outfit-Regular";
+  --font-Outfit-SemiBold : "Outfit-SemiBold";
+  --font-PlayfairDisplay-Bold : "PlayfairDisplay-Bold";
+  --font-PlayfairDisplay-SemiBold : "PlayfairDisplay-SemiBold";
+  --font-Poppins-Medium : "Poppins-Medium";
+  --font-Poppins-SemiBold : "Poppins-SemiBold";
+  --font-ReggaeOne-Regular : "ReggaeOne-Regular";
+    /* break point */
+  --breakpoint-xs: 20.625rem;
+
+}
+
+@utility container {
+  width: 1760px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-left: auto;
+  margin-right: auto;
+}
