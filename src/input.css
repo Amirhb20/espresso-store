@@ -58,13 +58,75 @@
   --font-ReggaeOne-Regular : "ReggaeOne-Regular";
     /* break point */
   --breakpoint-xs: 20.625rem;
-
+  /* font size */
+  --text-32 : 2rem 
 }
 
 @utility container {
-  width: 1760px;
+  width: 1400px;
   padding-left: 20px;
   padding-right: 20px;
   margin-left: auto;
   margin-right: auto;
+}
+@layer components {
+  /* btn defult */
+  .btn-primary{
+    @apply text-lg px-7 py-3 cursor-pointer inline-block rounded-full
+  }
+  /* search Box */
+  .search-wrapper{
+    @apply relative flex items-center;
+  }
+  .search-btn{
+    @apply w-10 h-10 rounded-full bg-white flex items-center justify-center relative z-20;
+  }
+  .search-input{
+    @apply absolute right-5 h-10 bg-white rounded-l-full outline-none;
+    width:0;
+    opacity:0;
+    padding:0;
+    transition:
+    width .35s ease,
+    opacity .25s ease,
+    padding .35s ease;
+    z-index:10;
+  }
+  .search-input--active{
+    width:220px;
+    opacity:1;
+    padding:0 16px;
+  }
+  /* list item hover */
+    .nav-link {
+    @apply relative inline-block;
+  }
+  .nav-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 2px;
+    background: #E2D9C8;
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform .3s ease;
+    transition-delay: .10s;
+  }
+  .nav-link:hover::after {
+    transform: scaleX(1);
+  }
+  /* animation title */
+    .hero-welcome::after {
+    content: "|";
+    margin-left: 2px;
+    animation: blink 0.8s infinite;
+  }
+  @keyframes blink {
+    50% {
+      opacity: 0;
+    }
+  }
+
 }

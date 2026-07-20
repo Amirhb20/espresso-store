@@ -7,9 +7,28 @@
       "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
+    --color-white: #fff;
+    --spacing: 0.25rem;
+    --text-lg: 1.125rem;
+    --text-lg--line-height: calc(1.75 / 1.125);
+    --text-xl: 1.25rem;
+    --text-xl--line-height: calc(1.75 / 1.25);
+    --text-2xl: 1.5rem;
+    --text-2xl--line-height: calc(2 / 1.5);
+    --text-3xl: 1.875rem;
+    --text-3xl--line-height: calc(2.25 / 1.875);
+    --text-7xl: 4.5rem;
+    --text-7xl--line-height: 1;
+    --default-transition-duration: 150ms;
+    --default-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     --default-font-family: var(--font-sans);
     --default-mono-font-family: var(--font-mono);
-    --font-ReggaeOne-Regular: "ReggaeOne-Regular";
+    --color-Cotton-Cream: #e2d9c8;
+    --font-Outfit-Medium: "Outfit-Medium";
+    --font-Outfit-Regular: "Outfit-Regular";
+    --font-PlayfairDisplay-Bold: "PlayfairDisplay-Bold";
+    --font-Poppins-Medium: "Poppins-Medium";
+    --text-32: 2rem;
   }
 }
 @layer base {
@@ -164,6 +183,9 @@
   .visible {
     visibility: visible;
   }
+  .relative {
+    position: relative;
+  }
   .static {
     position: static;
   }
@@ -188,12 +210,21 @@
       max-width: 96rem;
     }
   }
+  .mt-6 {
+    margin-top: calc(var(--spacing) * 6);
+  }
   .container {
-    width: 1760px;
+    width: 1400px;
     padding-left: 20px;
     padding-right: 20px;
     margin-left: auto;
     margin-right: auto;
+  }
+  .mb-10 {
+    margin-bottom: calc(var(--spacing) * 10);
+  }
+  .flex {
+    display: flex;
   }
   .grid {
     display: grid;
@@ -201,14 +232,106 @@
   .hidden {
     display: none;
   }
+  .size-6 {
+    width: calc(var(--spacing) * 6);
+    height: calc(var(--spacing) * 6);
+  }
+  .h-6 {
+    height: calc(var(--spacing) * 6);
+  }
+  .min-h-\[calc\(100vh-104px\)\] {
+    min-height: calc(100vh - 104px);
+  }
+  .w-6 {
+    width: calc(var(--spacing) * 6);
+  }
+  .max-w-108 {
+    max-width: calc(var(--spacing) * 108);
+  }
+  .max-w-152 {
+    max-width: calc(var(--spacing) * 152);
+  }
   .transform {
     transform: var(--tw-rotate-x,) var(--tw-rotate-y,) var(--tw-rotate-z,) var(--tw-skew-x,) var(--tw-skew-y,);
   }
   .resize {
     resize: both;
   }
+  .items-center {
+    align-items: center;
+  }
+  .justify-between {
+    justify-content: space-between;
+  }
+  .gap-10 {
+    gap: calc(var(--spacing) * 10);
+  }
+  .bg-white {
+    background-color: var(--color-white);
+  }
+  .bg-\[url\(\'\.\.\/image\/headerimage\.png\'\)\] {
+    background-image: url('../image/headerimage.png');
+  }
+  .bg-cover {
+    background-size: cover;
+  }
+  .bg-no-repeat {
+    background-repeat: no-repeat;
+  }
+  .pt-14 {
+    padding-top: calc(var(--spacing) * 14);
+  }
+  .font-Outfit-Medium {
+    font-family: var(--font-Outfit-Medium);
+  }
+  .font-Outfit-Regular {
+    font-family: var(--font-Outfit-Regular);
+  }
+  .font-PlayfairDisplay-Bold {
+    font-family: var(--font-PlayfairDisplay-Bold);
+  }
+  .text-2xl {
+    font-size: var(--text-2xl);
+    line-height: var(--tw-leading, var(--text-2xl--line-height));
+  }
+  .text-7xl {
+    font-size: var(--text-7xl);
+    line-height: var(--tw-leading, var(--text-7xl--line-height));
+  }
+  .text-lg {
+    font-size: var(--text-lg);
+    line-height: var(--tw-leading, var(--text-lg--line-height));
+  }
+  .text-32 {
+    font-size: var(--text-32);
+  }
+  .text-white {
+    color: var(--color-white);
+  }
+  .uppercase {
+    text-transform: uppercase;
+  }
+  .outline-none {
+    --tw-outline-style: none;
+    outline-style: none;
+  }
   .backface-hidden {
     backface-visibility: hidden;
+  }
+  .\*\*\:font-Poppins-Medium {
+    :is(& *) {
+      font-family: var(--font-Poppins-Medium);
+    }
+  }
+  .\*\*\:text-white {
+    :is(& *) {
+      color: var(--color-white);
+    }
+  }
+  .\*\*\:uppercase {
+    :is(& *) {
+      text-transform: uppercase;
+    }
   }
 }
 @font-face {
@@ -250,6 +373,83 @@
   font-family: "ReggaeOne-Regular";
   src: local("ReggaeOne-Regular"), url(../fonts/ReggaeOne-Regular.ttf), format(truetype);
   font-display: swap;
+}
+@layer components {
+  .btn-primary {
+    display: inline-block;
+    cursor: pointer;
+    border-radius: calc(infinity * 1px);
+    padding-inline: calc(var(--spacing) * 7);
+    padding-block: calc(var(--spacing) * 3);
+    font-size: var(--text-lg);
+    line-height: var(--tw-leading, var(--text-lg--line-height));
+  }
+  .search-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  .search-btn {
+    position: relative;
+    z-index: 20;
+    display: flex;
+    height: calc(var(--spacing) * 10);
+    width: calc(var(--spacing) * 10);
+    align-items: center;
+    justify-content: center;
+    border-radius: calc(infinity * 1px);
+    background-color: var(--color-white);
+  }
+  .search-input {
+    position: absolute;
+    right: calc(var(--spacing) * 5);
+    height: calc(var(--spacing) * 10);
+    border-top-left-radius: calc(infinity * 1px);
+    border-bottom-left-radius: calc(infinity * 1px);
+    background-color: var(--color-white);
+    --tw-outline-style: none;
+    outline-style: none;
+    width: 0;
+    opacity: 0;
+    padding: 0;
+    transition: width .35s ease, opacity .25s ease, padding .35s ease;
+    z-index: 10;
+  }
+  .search-input--active {
+    width: 220px;
+    opacity: 1;
+    padding: 0 16px;
+  }
+  .nav-link {
+    position: relative;
+    display: inline-block;
+  }
+  .nav-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 2px;
+    background: #E2D9C8;
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform .3s ease;
+    transition-delay: .10s;
+  }
+  .nav-link:hover::after {
+    transform: scaleX(1);
+  }
+  .hero-welcome::after {
+    content: "|";
+    margin-left: 2px;
+    animation: blink 0.8s infinite;
+  }
+  @keyframes blink {
+    50% {
+      opacity: 0;
+    }
+  }
 }
 @property --tw-rotate-x {
   syntax: "*";
