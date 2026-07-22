@@ -59,7 +59,8 @@
     /* break point */
   --breakpoint-xs: 20.625rem;
   /* font size */
-  --text-32 : 2rem 
+  --text-32 : 2rem ;
+  --text-28 : 1.75rem;
 }
 
 @utility container {
@@ -72,17 +73,17 @@
 @layer components {
   /* btn defult */
   .btn-primary{
-    @apply text-lg px-7 py-3 cursor-pointer inline-block rounded-full
+    @apply text-lg px-5 sm:px-7 py-2 sm:py-3 cursor-pointer inline-block rounded-full
   }
   /* search Box */
   .search-wrapper{
     @apply relative flex items-center;
   }
   .search-btn{
-    @apply w-10 h-10 rounded-full bg-white flex items-center justify-center relative z-20;
+    @apply p-1 w-8 lg:w-10 h-8 lg:h-10 rounded-full bg-white flex items-center justify-center relative z-20;
   }
   .search-input{
-    @apply absolute right-5 h-10 bg-white rounded-l-full outline-none;
+    @apply absolute right-5 h-8 lg:h-10 bg-white rounded-l-full outline-none;
     width:0;
     opacity:0;
     padding:0;
@@ -93,9 +94,7 @@
     z-index:10;
   }
   .search-input--active{
-    width:220px;
-    opacity:1;
-    padding:0 16px;
+    @apply w-30 lg:w-40 xl:w-55 opacity-100 py-0 px-4
   }
   /* list item hover */
     .nav-link {
@@ -128,5 +127,10 @@
       opacity: 0;
     }
   }
-
+    .overlay {
+    @apply invisible opacity-0 fixed sm:hidden inset-0 bg-black/40 w-full h-full z-10 transition-all;
+  }
+  .overlay--visible {
+    @apply visible opacity-100;
+  }
 }

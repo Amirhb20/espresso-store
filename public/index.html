@@ -8,7 +8,9 @@
     <link rel="stylesheet" href="./swiper config/swiper-bundle.min.css" />
     <link rel="icon" type="image/png" href="./image/icon site.png" />
   </head>
-  <body class="bg-[url('../image/headerimage.png')] bg-cover bg-no-repeat">
+  <body
+    class="bg-[url('../image/headerimage.png')] bg-cover bg-no-repeat bg-[50%_center] md:bg-center"
+  >
     <!-- use svg -->
     <svg class="hidden">
       <symbol
@@ -26,16 +28,48 @@
           d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
         />
       </symbol>
+      <symbol
+        id="bars"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        class="size-6"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+        />
+      </symbol>
+      <symbol
+        id="x-mark"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        class="size-6"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M6 18 18 6M6 6l12 12"
+        />
+      </symbol>
     </svg>
-    <header class="header pt-14">
+    <header class="header hidden sm:flex pt-14">
       <div class="container">
         <div class="flex items-center justify-between">
           <!-- Logo -->
-          <h2 class="font-PlayfairDisplay-Bold text-32 text-white">Coffea</h2>
+          <h2 class="font-PlayfairDisplay-Bold text-28 lg:text-32 text-white">
+            Coffea
+          </h2>
 
           <!-- Menu -->
           <ul
-            class="flex items-center gap-10 **:font-Poppins-Medium **:uppercase **:text-white"
+            class="flex items-center gap-5 lg:gap-10 *:text-base lg:*:text-lg **:font-Poppins-Medium **:uppercase **:text-white"
           >
             <li><a href="#" class="nav-link">Home</a></li>
             <li><a href="#" class="nav-link">Coffee</a></li>
@@ -64,6 +98,51 @@
         </div>
       </div>
     </header>
+    <!-- mobile header -->
+    <div class="flex sm:hidden pt-14">
+      <div class="container px-0 py-0">
+        <!-- nav icon -->
+        <div class="flex justify-between items-center">
+          <!-- Logo -->
+          <h2 class="font-PlayfairDisplay-Bold text-28 text-white">Coffea</h2>
+          <!-- bars svg -->
+          <button class="nav-open-icon cursor-pointer">
+            <svg class="w-8 h-8 text-white">
+              <use href="#bars"></use>
+            </svg>
+          </button>
+        </div>
+        <!-- Menu -->
+        <div
+          class="nav bg-Dark-Walnut w-64 min-h-screen fixed bottom-0 top-0 -left-64 py-12 px-8 z-20 transition-all duration-500 ease-in-out"
+        >
+          <!-- menu top -->
+          <div
+            class="flex justify-between items-center border-b pb-6 border-white"
+          >
+            <h2 class="font-PlayfairDisplay-Bold text-lg text-white">Coffea</h2>
+            <button class="nav-close-icon cursor-pointer">
+              <svg class="w-8 h-8 text-white">
+                <use href="#x-mark"></use>
+              </svg>
+            </button>
+          </div>
+          <!-- menu body -->
+          <div>
+            <ul
+              class="flex flex-col gap-10 **:font-Poppins-Medium **:text-white pt-12"
+            >
+              <li><a href="#">Home</a></li>
+              <li><a href="#">Coffee</a></li>
+              <li><a href="#">Bakery</a></li>
+              <li><a href="#">Shop</a></li>
+              <li><a href="#">About</a></li>
+              <li><a href="#">Login</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
     <!-- main -->
     <main class="main">
       <section class="hero">
@@ -72,18 +151,20 @@
           <div>
             <!-- hero content title -->
             <h3
-              class="hero-welcome font-Outfit-Medium text-2xl text-white uppercase"
+              class="hero-welcome font-Outfit-Medium text-xl sm:text-2xl text-white uppercase"
             >
               wellcome
             </h3>
             <!-- hero content title -->
             <h1
-              class="font-PlayfairDisplay-Bold text-7xl max-w-152 mt-6 mb-10 text-white"
+              class="font-PlayfairDisplay-Bold leading-14 sm:leading-18 text-4xl sm:text-5xl md:text-6xl xl:text-7xl max-w-137.5 md:max-w-152 mt-4 md:mt-6 mb-8 md:mb-10 text-white"
             >
               We serve the richest coffee in the city!
             </h1>
             <!-- hero content paragraph -->
-            <p class="font-Outfit-Regular text-lg max-w-108 mb-10 text-white">
+            <p
+              class="font-Outfit-Regular text-base sm:text-lg max-w-108 mb-10 text-white"
+            >
               Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
               eiusmod tempor
             </p>
@@ -96,6 +177,7 @@
         </div>
       </section>
     </main>
+    <div class="overlay"></div>
     <script src="./swiper config/swiper-bundle.min.js"></script>
     <script src="./script/app.js"></script>
   </body>
