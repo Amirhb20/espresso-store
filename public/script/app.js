@@ -1,4 +1,5 @@
 "use strict";
+//varible
 const searchInput = document.querySelector(".search-input");
 const searchBox = document.querySelector(".search-box");
 const searchBtn = document.querySelector(".search-btn");
