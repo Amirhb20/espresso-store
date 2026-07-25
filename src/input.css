@@ -153,7 +153,7 @@
 
   /* tilte section */
   .title-section {
-    @apply font-PlayfairDisplay-SemiBold text-32 text-Dark-Walnut tracking-[0.04em] uppercase text-center;
+    @apply font-PlayfairDisplay-SemiBold text-2xl sm:text-3xl lg::text-32 text-Dark-Walnut tracking-[0.04em] uppercase text-center;
   }
   .swiper {
     width: 100%;

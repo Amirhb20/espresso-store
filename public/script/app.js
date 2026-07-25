@@ -58,6 +58,23 @@ var swiper = new Swiper(".mySwiper", {
     nextEl: ".coffee-next",
     prevEl: ".coffee-prev",
   },
+  breakpoints: {
+    330: {
+      slidesPerView: 1,
+    },
+    640: {
+      slidesPerView: 2,
+      spaceBetween: 20,
+    },
+    1024: {
+      slidesPerView: 3,
+      spaceBetween: 50,
+    },
+    1280: {
+      slidesPerView: 4,
+      spaceBetween: 10,
+    },
+  },
 });
 var swiper = new Swiper(".mySwiper2", {
   slidesPerView: 4,
@@ -70,5 +87,22 @@ var swiper = new Swiper(".mySwiper2", {
   navigation: {
     nextEl: ".dessert-next",
     prevEl: ".dessert-prev",
+  },
+  breakpoints: {
+    330: {
+      slidesPerView: 1,
+    },
+    640: {
+      slidesPerView: 2,
+      spaceBetween: 20,
+    },
+    1024: {
+      slidesPerView: 3,
+      spaceBetween: 50,
+    },
+    1280: {
+      slidesPerView: 4,
+      spaceBetween: 10,
+    },
   },
 });
