@@ -114,6 +114,52 @@
           fill-opacity="0.8"
         />
       </symbol>
+      <symbol
+        id="arrow-right"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        class="size-6"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
+        />
+      </symbol>
+      <symbol
+        id="arrow-left"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        class="size-6"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18"
+        />
+      </symbol>
+      <symbol
+        id="heart"
+        width="33"
+        height="33"
+        viewBox="0 0 33 33"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M16.4147 10.9432C16.4147 10.9432 16.4147 10.9432 15.3751 9.57526C14.1714 7.98851 12.3931 6.83948 10.2592 6.83948C6.85316 6.83948 4.1037 9.58894 4.1037 12.995C4.1037 14.2671 4.48671 15.4435 5.1433 16.4147C6.25129 18.0699 16.4147 28.7257 16.4147 28.7257M16.4147 10.9432C16.4147 10.9432 16.4147 10.9432 17.4543 9.57526C18.6581 7.98851 20.4363 6.83948 22.5702 6.83948C25.9763 6.83948 28.7258 9.58894 28.7258 12.995C28.7258 14.2671 28.3427 15.4435 27.6862 16.4147C26.5782 18.0699 16.4147 28.7257 16.4147 28.7257"
+          stroke="#F1F0EE"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </symbol>
     </svg>
     <!-- header -->
     <section class="intro">
@@ -239,11 +285,11 @@
           </div>
         </div>
       </section>
+      <!-- main -->
     </section>
-    <!-- main -->
     <main class="main">
       <!-- categories section -->
-      <section class="categories bg-Cotton-Cream">
+      <section>
         <div class="container py-12">
           <!-- categories wrapper -->
           <div
@@ -280,6 +326,832 @@
               <h4 class="mt-3 font-Poppins-Medium text-lg text-Light-Taupe">
                 Dessert
               </h4>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- special-products section -->
+      <section class="special-products bg-Off-White-Gray pb-16">
+        <div class="container">
+          <!-- coffee  -->
+          <div>
+            <h2 class="title-section pt-20 mb-16">our special coffee</h2>
+            <!-- Swiper -->
+            <div class="relative">
+              <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide">
+                    <div
+                      class="bg-Cotton-Cream/20 border border-Cotton-Cream rounded-2xl p-4 overflow-hidden transition-all duration-300 ease-in hover:scale-[1.03] hover:shadow-xl"
+                    >
+                      <div class="relative">
+                        <img
+                          src="./image/special coffee-(1).png"
+                          alt="coffee"
+                          class="w-full h-72 rounded-xl"
+                        />
+                        <button class="absolute top-4 right-4 cursor-pointer">
+                          <svg class="w-8 h-8">
+                            <use href="#heart"></use>
+                          </svg>
+                        </button>
+                      </div>
+                      <h4
+                        class="font-Outfit-SemiBold text-4xl text-Dark-Walnut pt-4 pb-2.5"
+                      >
+                        Lungo coffee
+                      </h4>
+                      <p
+                        class="font-Outfit-Regular text-xl text-Warm-Coffee pb-3"
+                      >
+                        Lorem ipsum dolor sit amet, consectetur adipisicing
+                        elit,
+                      </p>
+                      <div class="flex justify-between items-center">
+                        <p
+                          class="font-Poppins-SemiBold text-Warm-Coffee text-xl"
+                        >
+                          Rs. 200
+                        </p>
+                        <button
+                          class="bg-Warm-Coffee px-5 rounded-lg py-2.5 font-Poppins-Medium text-base text-white cursor-pointer"
+                        >
+                          Order Now
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div
+                      class="bg-Cotton-Cream/20 border border-Cotton-Cream rounded-2xl p-4 overflow-hidden transition-all duration-300 ease-in hover:scale-[1.03] hover:shadow-xl"
+                    >
+                      <div class="relative">
+                        <img
+                          src="./image/special coffee-(2).png"
+                          alt="coffee"
+                          class="w-full h-72 rounded-xl"
+                        />
+                        <button
+                          class="heart absolute top-4 right-4 cursor-pointer"
+                        >
+                          <svg class="w-8 h-8">
+                            <use href="#heart"></use>
+                          </svg>
+                        </button>
+                      </div>
+                      <h4
+                        class="font-Outfit-SemiBold text-4xl text-Dark-Walnut pt-4 pb-2.5"
+                      >
+                        Lungo coffee
+                      </h4>
+                      <p
+                        class="font-Outfit-Regular text-xl text-Warm-Coffee pb-3"
+                      >
+                        Lorem ipsum dolor sit amet, consectetur adipisicing
+                        elit,
+                      </p>
+                      <div class="flex justify-between items-center">
+                        <p
+                          class="font-Poppins-SemiBold text-Warm-Coffee text-xl"
+                        >
+                          Rs. 200
+                        </p>
+                        <button
+                          class="bg-Warm-Coffee px-5 rounded-lg py-2.5 font-Poppins-Medium text-base text-white cursor-pointer"
+                        >
+                          Order Now
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div
+                      class="bg-Cotton-Cream/20 border border-Cotton-Cream rounded-2xl p-4 overflow-hidden transition-all duration-300 ease-in hover:scale-[1.03] hover:shadow-xl"
+                    >
+                      <div class="relative">
+                        <img
+                          src="./image/special coffee-(3).png"
+                          alt="coffee"
+                          class="w-full h-72 rounded-xl"
+                        />
+                        <button
+                          class="heart absolute top-4 right-4 cursor-pointer"
+                        >
+                          <svg class="w-8 h-8">
+                            <use href="#heart"></use>
+                          </svg>
+                        </button>
+                      </div>
+                      <h4
+                        class="font-Outfit-SemiBold text-4xl text-Dark-Walnut pt-4 pb-2.5"
+                      >
+                        Lungo coffee
+                      </h4>
+                      <p
+                        class="font-Outfit-Regular text-xl text-Warm-Coffee pb-3"
+                      >
+                        Lorem ipsum dolor sit amet, consectetur adipisicing
+                        elit,
+                      </p>
+                      <div class="flex justify-between items-center">
+                        <p
+                          class="font-Poppins-SemiBold text-Warm-Coffee text-xl"
+                        >
+                          Rs. 200
+                        </p>
+                        <button
+                          class="bg-Warm-Coffee px-5 rounded-lg py-2.5 font-Poppins-Medium text-base text-white cursor-pointer"
+                        >
+                          Order Now
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div
+                      class="bg-Cotton-Cream/20 border border-Cotton-Cream rounded-2xl p-4 overflow-hidden transition-all duration-300 ease-in hover:scale-[1.03] hover:shadow-xl"
+                    >
+                      <div class="relative">
+                        <img
+                          src="./image/special coffee-(4).png"
+                          alt="coffee"
+                          class="w-full h-72 rounded-xl"
+                        />
+                        <button
+                          class="heart absolute top-4 right-4 cursor-pointer"
+                        >
+                          <svg class="w-8 h-8">
+                            <use href="#heart"></use>
+                          </svg>
+                        </button>
+                      </div>
+                      <h4
+                        class="font-Outfit-SemiBold text-4xl text-Dark-Walnut pt-4 pb-2.5"
+                      >
+                        Lungo coffee
+                      </h4>
+                      <p
+                        class="font-Outfit-Regular text-xl text-Warm-Coffee pb-3"
+                      >
+                        Lorem ipsum dolor sit amet, consectetur adipisicing
+                        elit,
+                      </p>
+                      <div class="flex justify-between items-center">
+                        <p
+                          class="font-Poppins-SemiBold text-Warm-Coffee text-xl"
+                        >
+                          Rs. 200
+                        </p>
+                        <button
+                          class="bg-Warm-Coffee px-5 rounded-lg py-2.5 font-Poppins-Medium text-base text-white cursor-pointer"
+                        >
+                          Order Now
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div
+                      class="bg-Cotton-Cream/20 border border-Cotton-Cream rounded-2xl p-4 overflow-hidden transition-all duration-300 ease-in hover:scale-[1.03] hover:shadow-xl"
+                    >
+                      <div class="relative">
+                        <img
+                          src="./image/special coffee-(1).png"
+                          alt="coffee"
+                          class="w-full h-72 rounded-xl"
+                        />
+                        <button
+                          class="heart absolute top-4 right-4 cursor-pointer"
+                        >
+                          <svg class="w-8 h-8">
+                            <use href="#heart"></use>
+                          </svg>
+                        </button>
+                      </div>
+                      <h4
+                        class="font-Outfit-SemiBold text-4xl text-Dark-Walnut pt-4 pb-2.5"
+                      >
+                        Lungo coffee
+                      </h4>
+                      <p
+                        class="font-Outfit-Regular text-xl text-Warm-Coffee pb-3"
+                      >
+                        Lorem ipsum dolor sit amet, consectetur adipisicing
+                        elit,
+                      </p>
+                      <div class="flex justify-between items-center">
+                        <p
+                          class="font-Poppins-SemiBold text-Warm-Coffee text-xl"
+                        >
+                          Rs. 200
+                        </p>
+                        <button
+                          class="bg-Warm-Coffee px-5 rounded-lg py-2.5 font-Poppins-Medium text-base text-white cursor-pointer"
+                        >
+                          Order Now
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div
+                      class="bg-Cotton-Cream/20 border border-Cotton-Cream rounded-2xl p-4 overflow-hidden transition-all duration-300 ease-in hover:scale-[1.03] hover:shadow-xl"
+                    >
+                      <div class="relative">
+                        <img
+                          src="./image/special coffee-(2).png"
+                          alt="coffee"
+                          class="w-full h-72 rounded-xl"
+                        />
+                        <button
+                          class="heart absolute top-4 right-4 cursor-pointer"
+                        >
+                          <svg class="w-8 h-8">
+                            <use href="#heart"></use>
+                          </svg>
+                        </button>
+                      </div>
+                      <h4
+                        class="font-Outfit-SemiBold text-4xl text-Dark-Walnut pt-4 pb-2.5"
+                      >
+                        Lungo coffee
+                      </h4>
+                      <p
+                        class="font-Outfit-Regular text-xl text-Warm-Coffee pb-3"
+                      >
+                        Lorem ipsum dolor sit amet, consectetur adipisicing
+                        elit,
+                      </p>
+                      <div class="flex justify-between items-center">
+                        <p
+                          class="font-Poppins-SemiBold text-Warm-Coffee text-xl"
+                        >
+                          Rs. 200
+                        </p>
+                        <button
+                          class="bg-Warm-Coffee px-5 rounded-lg py-2.5 font-Poppins-Medium text-base text-white cursor-pointer"
+                        >
+                          Order Now
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div
+                      class="bg-Cotton-Cream/20 border border-Cotton-Cream rounded-2xl p-4 overflow-hidden transition-all duration-300 ease-in hover:scale-[1.03] hover:shadow-xl"
+                    >
+                      <div class="relative">
+                        <img
+                          src="./image/special coffee-(3).png"
+                          alt="coffee"
+                          class="w-full h-72 rounded-xl"
+                        />
+                        <button
+                          class="heart absolute top-4 right-4 cursor-pointer"
+                        >
+                          <svg class="w-8 h-8">
+                            <use href="#heart"></use>
+                          </svg>
+                        </button>
+                      </div>
+                      <h4
+                        class="font-Outfit-SemiBold text-4xl text-Dark-Walnut pt-4 pb-2.5"
+                      >
+                        Lungo coffee
+                      </h4>
+                      <p
+                        class="font-Outfit-Regular text-xl text-Warm-Coffee pb-3"
+                      >
+                        Lorem ipsum dolor sit amet, consectetur adipisicing
+                        elit,
+                      </p>
+                      <div class="flex justify-between items-center">
+                        <p
+                          class="font-Poppins-SemiBold text-Warm-Coffee text-xl"
+                        >
+                          Rs. 200
+                        </p>
+                        <button
+                          class="bg-Warm-Coffee px-5 rounded-lg py-2.5 font-Poppins-Medium text-base text-white cursor-pointer"
+                        >
+                          Order Now
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div
+                      class="bg-Cotton-Cream/20 border border-Cotton-Cream rounded-2xl p-4 overflow-hidden transition-all duration-300 ease-in hover:scale-[1.03] hover:shadow-xl"
+                    >
+                      <div class="relative">
+                        <img
+                          src="./image/special coffee-(4).png"
+                          alt="coffee"
+                          class="w-full h-72 rounded-xl"
+                        />
+                        <button
+                          class="heart absolute top-4 right-4 cursor-pointer"
+                        >
+                          <svg class="w-8 h-8">
+                            <use href="#heart"></use>
+                          </svg>
+                        </button>
+                      </div>
+                      <h4
+                        class="font-Outfit-SemiBold text-4xl text-Dark-Walnut pt-4 pb-2.5"
+                      >
+                        Lungo coffee
+                      </h4>
+                      <p
+                        class="font-Outfit-Regular text-xl text-Warm-Coffee pb-3"
+                      >
+                        Lorem ipsum dolor sit amet, consectetur adipisicing
+                        elit,
+                      </p>
+                      <div class="flex justify-between items-center">
+                        <p
+                          class="font-Poppins-SemiBold text-Warm-Coffee text-xl"
+                        >
+                          Rs. 200
+                        </p>
+                        <button
+                          class="bg-Warm-Coffee px-5 rounded-lg py-2.5 font-Poppins-Medium text-base text-white cursor-pointer"
+                        >
+                          Order Now
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div
+                      class="bg-Cotton-Cream/20 border border-Cotton-Cream rounded-2xl p-4 overflow-hidden transition-all duration-300 ease-in hover:scale-[1.03] hover:shadow-xl"
+                    >
+                      <div class="relative">
+                        <img
+                          src="./image/special coffee-(1).png"
+                          alt="coffee"
+                          class="w-full h-72 rounded-xl"
+                        />
+                        <button
+                          class="heart absolute top-4 right-4 cursor-pointer"
+                        >
+                          <svg class="w-8 h-8">
+                            <use href="#heart"></use>
+                          </svg>
+                        </button>
+                      </div>
+                      <h4
+                        class="font-Outfit-SemiBold text-4xl text-Dark-Walnut pt-4 pb-2.5"
+                      >
+                        Lungo coffee
+                      </h4>
+                      <p
+                        class="font-Outfit-Regular text-xl text-Warm-Coffee pb-3"
+                      >
+                        Lorem ipsum dolor sit amet, consectetur adipisicing
+                        elit,
+                      </p>
+                      <div class="flex justify-between items-center">
+                        <p
+                          class="font-Poppins-SemiBold text-Warm-Coffee text-xl"
+                        >
+                          Rs. 200
+                        </p>
+                        <button
+                          class="bg-Warm-Coffee px-5 rounded-lg py-2.5 font-Poppins-Medium text-base text-white cursor-pointer"
+                        >
+                          Order Now
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <button
+                class="coffee-prev inline-block bg-Cotton-Cream rounded-full p-4.5 cursor-pointer absolute top-[50%] -left-28"
+              >
+                <svg class="w-7 h-7 text-Dark-Walnut">
+                  <use href="#arrow-left"></use>
+                </svg>
+              </button>
+              <button
+                class="coffee-next inline-block bg-Cotton-Cream rounded-full p-4.5 cursor-pointer absolute top-[50%] -right-28"
+              >
+                <svg class="w-7 h-7 text-Dark-Walnut">
+                  <use href="#arrow-right"></use>
+                </svg>
+              </button>
+            </div>
+          </div>
+          <!-- dessert -->
+          <div>
+            <h2 class="title-section pt-20 mb-16">our special dessert</h2>
+            <!-- Swiper -->
+            <div class="relative">
+              <div class="swiper mySwiper2">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide">
+                    <div
+                      class="bg-Cotton-Cream/20 border border-Cotton-Cream rounded-2xl p-4 overflow-hidden transition-all duration-300 ease-in hover:scale-[1.03] hover:shadow-xl"
+                    >
+                      <div class="relative">
+                        <img
+                          src="./image/special dessert (1).png"
+                          alt="coffee"
+                          class="w-full h-72 rounded-xl"
+                        />
+                        <button
+                          class="heart absolute top-4 right-4 cursor-pointer"
+                        >
+                          <svg class="w-8 h-8">
+                            <use href="#heart"></use>
+                          </svg>
+                        </button>
+                      </div>
+                      <h4
+                        class="font-Outfit-SemiBold text-4xl text-Dark-Walnut pt-4 pb-2.5"
+                      >
+                        Lungo coffee
+                      </h4>
+                      <p
+                        class="font-Outfit-Regular text-xl text-Warm-Coffee pb-3"
+                      >
+                        Lorem ipsum dolor sit amet, consectetur adipisicing
+                        elit,
+                      </p>
+                      <div class="flex justify-between items-center">
+                        <p
+                          class="font-Poppins-SemiBold text-Warm-Coffee text-xl"
+                        >
+                          Rs. 200
+                        </p>
+                        <button
+                          class="bg-Warm-Coffee px-5 rounded-lg py-2.5 font-Poppins-Medium text-base text-white cursor-pointer"
+                        >
+                          Order Now
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div
+                      class="bg-Cotton-Cream/20 border border-Cotton-Cream rounded-2xl p-4 overflow-hidden transition-all duration-300 ease-in hover:scale-[1.03] hover:shadow-xl"
+                    >
+                      <div class="relative">
+                        <img
+                          src="./image/special dessert (2).png"
+                          class="w-full h-72 rounded-xl"
+                        />
+                        <button
+                          class="heart absolute top-4 right-4 cursor-pointer"
+                        >
+                          <svg class="w-8 h-8">
+                            <use href="#heart"></use>
+                          </svg>
+                        </button>
+                      </div>
+                      <h4
+                        class="font-Outfit-SemiBold text-4xl text-Dark-Walnut pt-4 pb-2.5"
+                      >
+                        Lungo coffee
+                      </h4>
+                      <p
+                        class="font-Outfit-Regular text-xl text-Warm-Coffee pb-3"
+                      >
+                        Lorem ipsum dolor sit amet, consectetur adipisicing
+                        elit,
+                      </p>
+                      <div class="flex justify-between items-center">
+                        <p
+                          class="font-Poppins-SemiBold text-Warm-Coffee text-xl"
+                        >
+                          Rs. 200
+                        </p>
+                        <button
+                          class="bg-Warm-Coffee px-5 rounded-lg py-2.5 font-Poppins-Medium text-base text-white cursor-pointer"
+                        >
+                          Order Now
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div
+                      class="bg-Cotton-Cream/20 border border-Cotton-Cream rounded-2xl p-4 overflow-hidden transition-all duration-300 ease-in hover:scale-[1.03] hover:shadow-xl"
+                    >
+                      <div class="relative">
+                        <img
+                          src="./image/special dessert (3).png"
+                          alt="coffee"
+                          class="w-full h-72 rounded-xl"
+                        />
+                        <button
+                          class="heart absolute top-4 right-4 cursor-pointer"
+                        >
+                          <svg class="w-8 h-8">
+                            <use href="#heart"></use>
+                          </svg>
+                        </button>
+                      </div>
+                      <h4
+                        class="font-Outfit-SemiBold text-4xl text-Dark-Walnut pt-4 pb-2.5"
+                      >
+                        Lungo coffee
+                      </h4>
+                      <p
+                        class="font-Outfit-Regular text-xl text-Warm-Coffee pb-3"
+                      >
+                        Lorem ipsum dolor sit amet, consectetur adipisicing
+                        elit,
+                      </p>
+                      <div class="flex justify-between items-center">
+                        <p
+                          class="font-Poppins-SemiBold text-Warm-Coffee text-xl"
+                        >
+                          Rs. 200
+                        </p>
+                        <button
+                          class="bg-Warm-Coffee px-5 rounded-lg py-2.5 font-Poppins-Medium text-base text-white cursor-pointer"
+                        >
+                          Order Now
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div
+                      class="bg-Cotton-Cream/20 border border-Cotton-Cream rounded-2xl p-4 overflow-hidden transition-all duration-300 ease-in hover:scale-[1.03] hover:shadow-xl"
+                    >
+                      <div class="relative">
+                        <img
+                          src="./image/special dessert (4).png"
+                          alt="coffee"
+                          class="w-full h-72 rounded-xl"
+                        />
+                        <button
+                          class="heart absolute top-4 right-4 cursor-pointer"
+                        >
+                          <svg class="w-8 h-8">
+                            <use href="#heart"></use>
+                          </svg>
+                        </button>
+                      </div>
+                      <h4
+                        class="font-Outfit-SemiBold text-4xl text-Dark-Walnut pt-4 pb-2.5"
+                      >
+                        Lungo coffee
+                      </h4>
+                      <p
+                        class="font-Outfit-Regular text-xl text-Warm-Coffee pb-3"
+                      >
+                        Lorem ipsum dolor sit amet, consectetur adipisicing
+                        elit,
+                      </p>
+                      <div class="flex justify-between items-center">
+                        <p
+                          class="font-Poppins-SemiBold text-Warm-Coffee text-xl"
+                        >
+                          Rs. 200
+                        </p>
+                        <button
+                          class="bg-Warm-Coffee px-5 rounded-lg py-2.5 font-Poppins-Medium text-base text-white cursor-pointer"
+                        >
+                          Order Now
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div
+                      class="bg-Cotton-Cream/20 border border-Cotton-Cream rounded-2xl p-4 overflow-hidden transition-all duration-300 ease-in hover:scale-[1.03] hover:shadow-xl"
+                    >
+                      <div class="relative">
+                        <img
+                          src="./image/special dessert (1).png"
+                          alt="coffee"
+                          class="w-full h-72 rounded-xl"
+                        />
+                        <button
+                          class="heart absolute top-4 right-4 cursor-pointer"
+                        >
+                          <svg class="w-8 h-8">
+                            <use href="#heart"></use>
+                          </svg>
+                        </button>
+                      </div>
+                      <h4
+                        class="font-Outfit-SemiBold text-4xl text-Dark-Walnut pt-4 pb-2.5"
+                      >
+                        Lungo coffee
+                      </h4>
+                      <p
+                        class="font-Outfit-Regular text-xl text-Warm-Coffee pb-3"
+                      >
+                        Lorem ipsum dolor sit amet, consectetur adipisicing
+                        elit,
+                      </p>
+                      <div class="flex justify-between items-center">
+                        <p
+                          class="font-Poppins-SemiBold text-Warm-Coffee text-xl"
+                        >
+                          Rs. 200
+                        </p>
+                        <button
+                          class="bg-Warm-Coffee px-5 rounded-lg py-2.5 font-Poppins-Medium text-base text-white cursor-pointer"
+                        >
+                          Order Now
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div
+                      class="bg-Cotton-Cream/20 border border-Cotton-Cream rounded-2xl p-4 overflow-hidden transition-all duration-300 ease-in hover:scale-[1.03] hover:shadow-xl"
+                    >
+                      <div class="relative">
+                        <img
+                          src="./image/special dessert (2).png"
+                          alt="coffee"
+                          class="w-full h-72 rounded-xl"
+                        />
+                        <button
+                          class="heart absolute top-4 right-4 cursor-pointer"
+                        >
+                          <svg class="w-8 h-8">
+                            <use href="#heart"></use>
+                          </svg>
+                        </button>
+                      </div>
+                      <h4
+                        class="font-Outfit-SemiBold text-4xl text-Dark-Walnut pt-4 pb-2.5"
+                      >
+                        Lungo coffee
+                      </h4>
+                      <p
+                        class="font-Outfit-Regular text-xl text-Warm-Coffee pb-3"
+                      >
+                        Lorem ipsum dolor sit amet, consectetur adipisicing
+                        elit,
+                      </p>
+                      <div class="flex justify-between items-center">
+                        <p
+                          class="font-Poppins-SemiBold text-Warm-Coffee text-xl"
+                        >
+                          Rs. 200
+                        </p>
+                        <button
+                          class="bg-Warm-Coffee px-5 rounded-lg py-2.5 font-Poppins-Medium text-base text-white cursor-pointer"
+                        >
+                          Order Now
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div
+                      class="bg-Cotton-Cream/20 border border-Cotton-Cream rounded-2xl p-4 overflow-hidden transition-all duration-300 ease-in hover:scale-[1.03] hover:shadow-xl"
+                    >
+                      <div class="relative">
+                        <img
+                          src="./image/special dessert (3).png"
+                          alt="coffee"
+                          class="w-full h-72 rounded-xl"
+                        />
+                        <button
+                          class="heart absolute top-4 right-4 cursor-pointer"
+                        >
+                          <svg class="w-8 h-8">
+                            <use href="#heart"></use>
+                          </svg>
+                        </button>
+                      </div>
+                      <h4
+                        class="font-Outfit-SemiBold text-4xl text-Dark-Walnut pt-4 pb-2.5"
+                      >
+                        Lungo coffee
+                      </h4>
+                      <p
+                        class="font-Outfit-Regular text-xl text-Warm-Coffee pb-3"
+                      >
+                        Lorem ipsum dolor sit amet, consectetur adipisicing
+                        elit,
+                      </p>
+                      <div class="flex justify-between items-center">
+                        <p
+                          class="font-Poppins-SemiBold text-Warm-Coffee text-xl"
+                        >
+                          Rs. 200
+                        </p>
+                        <button
+                          class="bg-Warm-Coffee px-5 rounded-lg py-2.5 font-Poppins-Medium text-base text-white cursor-pointer"
+                        >
+                          Order Now
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div
+                      class="bg-Cotton-Cream/20 border border-Cotton-Cream rounded-2xl p-4 overflow-hidden transition-all duration-300 ease-in hover:scale-[1.03] hover:shadow-xl"
+                    >
+                      <div class="relative">
+                        <img
+                          src="./image/special dessert (4).png"
+                          alt="coffee"
+                          class="w-full h-72 rounded-xl"
+                        />
+                        <button
+                          class="heart absolute top-4 right-4 cursor-pointer"
+                        >
+                          <svg class="w-8 h-8">
+                            <use href="#heart"></use>
+                          </svg>
+                        </button>
+                      </div>
+                      <h4
+                        class="font-Outfit-SemiBold text-4xl text-Dark-Walnut pt-4 pb-2.5"
+                      >
+                        Lungo coffee
+                      </h4>
+                      <p
+                        class="font-Outfit-Regular text-xl text-Warm-Coffee pb-3"
+                      >
+                        Lorem ipsum dolor sit amet, consectetur adipisicing
+                        elit,
+                      </p>
+                      <div class="flex justify-between items-center">
+                        <p
+                          class="font-Poppins-SemiBold text-Warm-Coffee text-xl"
+                        >
+                          Rs. 200
+                        </p>
+                        <button
+                          class="bg-Warm-Coffee px-5 rounded-lg py-2.5 font-Poppins-Medium text-base text-white cursor-pointer"
+                        >
+                          Order Now
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div
+                      class="bg-Cotton-Cream/20 border border-Cotton-Cream rounded-2xl p-4 overflow-hidden transition-all duration-300 ease-in hover:scale-[1.03] hover:shadow-xl"
+                    >
+                      <div class="relative">
+                        <img
+                          src="./image/special dessert (1).png"
+                          alt="coffee"
+                          class="w-full h-72 rounded-xl"
+                        />
+                        <button
+                          class="heart absolute top-4 right-4 cursor-pointer"
+                        >
+                          <svg class="w-8 h-8">
+                            <use href="#heart"></use>
+                          </svg>
+                        </button>
+                      </div>
+                      <h4
+                        class="font-Outfit-SemiBold text-4xl text-Dark-Walnut pt-4 pb-2.5"
+                      >
+                        Lungo coffee
+                      </h4>
+                      <p
+                        class="font-Outfit-Regular text-xl text-Warm-Coffee pb-3"
+                      >
+                        Lorem ipsum dolor sit amet, consectetur adipisicing
+                        elit,
+                      </p>
+                      <div class="flex justify-between items-center">
+                        <p
+                          class="font-Poppins-SemiBold text-Warm-Coffee text-xl"
+                        >
+                          Rs. 200
+                        </p>
+                        <button
+                          class="bg-Warm-Coffee px-5 rounded-lg py-2.5 font-Poppins-Medium text-base text-white cursor-pointer"
+                        >
+                          Order Now
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <button
+                class="dessert-prev inline-block bg-Cotton-Cream rounded-full p-4.5 cursor-pointer absolute top-[50%] -left-28"
+              >
+                <svg class="w-7 h-7 text-Dark-Walnut">
+                  <use href="#arrow-left"></use>
+                </svg>
+              </button>
+              <button
+                class="dessert-next inline-block bg-Cotton-Cream rounded-full p-4.5 cursor-pointer absolute top-[50%] -right-28"
+              >
+                <svg class="w-7 h-7 text-Dark-Walnut">
+                  <use href="#arrow-right"></use>
+                </svg>
+              </button>
             </div>
           </div>
         </div>

@@ -8,6 +8,7 @@ const navOpenBtn = document.querySelector(".nav-open-icon");
 const navcloseBtn = document.querySelector(".nav-close-icon");
 const overlay = document.querySelector(".overlay");
 const nav = document.querySelector(".nav");
+
 // search Box open & close
 searchBtn.addEventListener("click", function () {
   searchInput.classList.toggle("search-input--active");
@@ -42,4 +43,32 @@ navcloseBtn.addEventListener("click", function () {
   nav.classList.remove("left-0");
   nav.classList.add("-left-64");
   overlay.classList.remove("overlay--visible");
+});
+
+//swiper varible
+var swiper = new Swiper(".mySwiper", {
+  slidesPerView: 4,
+  spaceBetween: 10,
+  loop: true,
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+  },
+  navigation: {
+    nextEl: ".coffee-next",
+    prevEl: ".coffee-prev",
+  },
+});
+var swiper = new Swiper(".mySwiper2", {
+  slidesPerView: 4,
+  spaceBetween: 10,
+  loop: true,
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+  },
+  navigation: {
+    nextEl: ".dessert-next",
+    prevEl: ".dessert-prev",
+  },
 });

@@ -1,42 +1,55 @@
 @import "tailwindcss";
 @font-face {
   font-family: "Outfit-Medium";
-  src: local("Outfit-Medium"), url(../fonts/Outfit-Medium.ttf), format(truetype);
+  src:
+    local("Outfit-Medium"), url(../fonts/Outfit-Medium.ttf), format(truetype);
   font-display: swap;
 }
 @font-face {
   font-family: "Outfit-Regular";
-  src: local("Outfit-Regular"), url(../fonts/Outfit-Regular.ttf), format(truetype);
+  src:
+    local("Outfit-Regular"), url(../fonts/Outfit-Regular.ttf), format(truetype);
   font-display: swap;
 }
 @font-face {
   font-family: "Outfit-SemiBold";
-  src: local("Outfit-SemiBold"), url(../fonts/Outfit-SemiBold.ttf), format(truetype);
+  src:
+    local("Outfit-SemiBold"), url(../fonts/Outfit-SemiBold.ttf),
+    format(truetype);
   font-display: swap;
 }
 @font-face {
   font-family: "PlayfairDisplay-Bold";
-  src: local("PlayfairDisplay-Bold"), url(../fonts/PlayfairDisplay-Bold.ttf), format(truetype);
+  src:
+    local("PlayfairDisplay-Bold"), url(../fonts/PlayfairDisplay-Bold.ttf),
+    format(truetype);
   font-display: swap;
 }
 @font-face {
   font-family: "PlayfairDisplay-SemiBold";
-  src: local("PlayfairDisplay-SemiBold"), url(../fonts/PlayfairDisplay-SemiBold.ttf), format(truetype);
+  src:
+    local("PlayfairDisplay-SemiBold"),
+    url(../fonts/PlayfairDisplay-SemiBold.ttf), format(truetype);
   font-display: swap;
 }
 @font-face {
   font-family: "Poppins-Medium";
-  src: local("Poppins-Medium"), url(../fonts/Poppins-Medium.ttf), format(truetype);
+  src:
+    local("Poppins-Medium"), url(../fonts/Poppins-Medium.ttf), format(truetype);
   font-display: swap;
 }
 @font-face {
   font-family: "Poppins-SemiBold";
-  src: local("Poppins-SemiBold"), url(../fonts/Poppins-SemiBold.ttf), format(truetype);
+  src:
+    local("Poppins-SemiBold"), url(../fonts/Poppins-SemiBold.ttf),
+    format(truetype);
   font-display: swap;
 }
 @font-face {
   font-family: "ReggaeOne-Regular";
-  src: local("ReggaeOne-Regular"), url(../fonts/ReggaeOne-Regular.ttf), format(truetype);
+  src:
+    local("ReggaeOne-Regular"), url(../fonts/ReggaeOne-Regular.ttf),
+    format(truetype);
   font-display: swap;
 }
 
@@ -46,21 +59,21 @@
   --color-Cotton-Cream: #e2d9c8;
   --color-Light-Taupe: #544a3e;
   --color-Warm-Coffee: #2a0000;
-  --color-Off White-Gray: #F1F0EE;
+  --color-Off-White-Gray: #f1f0ee;
   /* font */
-  --font-Outfit-Medium : "Outfit-Medium";
-  --font-Outfit-Regular : "Outfit-Regular";
-  --font-Outfit-SemiBold : "Outfit-SemiBold";
-  --font-PlayfairDisplay-Bold : "PlayfairDisplay-Bold";
-  --font-PlayfairDisplay-SemiBold : "PlayfairDisplay-SemiBold";
-  --font-Poppins-Medium : "Poppins-Medium";
-  --font-Poppins-SemiBold : "Poppins-SemiBold";
-  --font-ReggaeOne-Regular : "ReggaeOne-Regular";
-    /* break point */
+  --font-Outfit-Medium: "Outfit-Medium";
+  --font-Outfit-Regular: "Outfit-Regular";
+  --font-Outfit-SemiBold: "Outfit-SemiBold";
+  --font-PlayfairDisplay-Bold: "PlayfairDisplay-Bold";
+  --font-PlayfairDisplay-SemiBold: "PlayfairDisplay-SemiBold";
+  --font-Poppins-Medium: "Poppins-Medium";
+  --font-Poppins-SemiBold: "Poppins-SemiBold";
+  --font-ReggaeOne-Regular: "ReggaeOne-Regular";
+  /* break point */
   --breakpoint-xs: 20.625rem;
   /* font size */
-  --text-32 : 2rem ;
-  --text-28 : 1.75rem;
+  --text-32: 2rem;
+  --text-28: 1.75rem;
 }
 
 @utility container {
@@ -71,36 +84,36 @@
   margin-right: auto;
 }
 @layer components {
-  .intro{
-  @apply bg-[url('../image/headerimage.png')] bg-cover bg-no-repeat bg-[50%_center] md:bg-center
+  .intro {
+    @apply bg-[url('../image/headerimage.png')] bg-cover bg-no-repeat bg-[50%_center] md:bg-center;
   }
   /* btn defult */
-  .btn-primary{
-    @apply text-lg px-5 sm:px-7 py-2 sm:py-3 cursor-pointer inline-block rounded-full
+  .btn-primary {
+    @apply text-lg px-5 sm:px-7 py-2 sm:py-3 cursor-pointer inline-block rounded-full;
   }
   /* search Box */
-  .search-wrapper{
+  .search-wrapper {
     @apply relative flex items-center;
   }
-  .search-btn{
+  .search-btn {
     @apply p-1 w-8 lg:w-10 h-8 lg:h-10 rounded-full bg-white flex items-center justify-center relative z-20;
   }
-  .search-input{
+  .search-input {
     @apply absolute right-5 h-8 lg:h-10 bg-white rounded-l-full outline-none;
-    width:0;
-    opacity:0;
-    padding:0;
+    width: 0;
+    opacity: 0;
+    padding: 0;
     transition:
-    width .35s ease,
-    opacity .25s ease,
-    padding .35s ease;
-    z-index:10;
+      width 0.35s ease,
+      opacity 0.25s ease,
+      padding 0.35s ease;
+    z-index: 10;
   }
-  .search-input--active{
-    @apply w-30 lg:w-40 xl:w-55 opacity-100 py-0 px-4
+  .search-input--active {
+    @apply w-30 lg:w-40 xl:w-55 opacity-100 py-0 px-4;
   }
   /* list item hover */
-    .nav-link {
+  .nav-link {
     @apply relative inline-block;
   }
   .nav-link::after {
@@ -110,17 +123,17 @@
     bottom: -6px;
     width: 100%;
     height: 2px;
-    background: #E2D9C8;
+    background: #e2d9c8;
     transform: scaleX(0);
     transform-origin: center;
-    transition: transform .3s ease;
-    transition-delay: .10s;
+    transition: transform 0.3s ease;
+    transition-delay: 0.1s;
   }
   .nav-link:hover::after {
     transform: scaleX(1);
   }
   /* animation title */
-    .hero-welcome::after {
+  .hero-welcome::after {
     content: "|";
     margin-left: 2px;
     animation: blink 0.8s infinite;
@@ -130,11 +143,35 @@
       opacity: 0;
     }
   }
-    .overlay {
+  /* overlay mobile */
+  .overlay {
     @apply invisible opacity-0 fixed sm:hidden inset-0 bg-black/40 w-full h-full z-10 transition-all;
   }
   .overlay--visible {
     @apply visible opacity-100;
   }
 
+  /* tilte section */
+  .title-section {
+    @apply font-PlayfairDisplay-SemiBold text-32 text-Dark-Walnut tracking-[0.04em] uppercase text-center;
+  }
+  .swiper {
+    width: 100%;
+    height: 100%;
+  }
+
+  .swiper-slide {
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 55px;
+  }
+
+  .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 }
