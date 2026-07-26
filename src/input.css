@@ -74,6 +74,7 @@
   /* font size */
   --text-32: 2rem;
   --text-28: 1.75rem;
+  --text-40: 2.5rem;
 }
 
 @utility container {
@@ -153,7 +154,7 @@
 
   /* tilte section */
   .title-section {
-    @apply font-PlayfairDisplay-SemiBold text-2xl sm:text-3xl lg::text-32 text-Dark-Walnut tracking-[0.04em] uppercase text-center;
+    @apply font-PlayfairDisplay-SemiBold text-2xl sm:text-3xl lg:text-32 text-Dark-Walnut tracking-[0.04em] uppercase text-center;
   }
   .swiper {
     width: 100%;
