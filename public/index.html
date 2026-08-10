@@ -196,6 +196,29 @@
           fill="#FFB921"
         />
       </symbol>
+      <symbol
+        id="email"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M4 4H20C21.1 4 22 4.9 22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V6C2 4.9 2.9 4 4 4Z"
+          stroke="#30261C"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+        <path
+          d="M22 6L12 13L2 6"
+          stroke="#30261C"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </symbol>
     </svg>
     <!-- header -->
     <section class="intro">
@@ -1690,6 +1713,51 @@
             </div>
           </div>
           <div class="swiper-pagination"></div>
+        </div>
+      </section>
+      <section class="newsletter">
+        <div
+          class="bg-[url('../image/newsletter-image.png')] bg-cover bg-center"
+        >
+          <div
+            class="newsletter-wrapper flex items-center flex-col text-center"
+          >
+            <div class="newsletter-content">
+              <h2
+                class="text-32 text-Dark-Walnut font-Poppins-SemiBold mt-13 mb-2"
+              >
+                Join in and get 15% off!
+              </h2>
+
+              <p class="text-base text-Dark-Walnut font-Poppins-Medium mb-6">
+                Subscribe to our newsletter in get 15% off discount code.
+              </p>
+
+              <form class="flex items-center gap-3 mb-13">
+                <div
+                  class="bg-white flex items-center gap-2.5 rounded-3xl py-2 pl-6 w-88"
+                >
+                  <svg class="w-6 h-6">
+                    <use href="#email"></use>
+                  </svg>
+                  <input
+                    type="email"
+                    placeholder="Email address"
+                    class="placeholder:text-Dark-Walnut placeholder:font-Poppins-SemiBold placeholder:text-base font-Poppins-Medium outline-none border-none"
+                  />
+                </div>
+
+                <div>
+                  <button
+                    type="submit"
+                    class="font-Poppins-SemiBold text-base text-Off-White-Gray bg-Dark-Walnut py-2 px-6 rounded-3xl cursor-pointer"
+                  >
+                    Subscribe
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
         </div>
       </section>
     </main>
