@@ -324,6 +324,9 @@
   .hidden {
     display: none;
   }
+  .table {
+    display: table;
+  }
   .size-6 {
     width: calc(var(--spacing) * 6);
     height: calc(var(--spacing) * 6);
@@ -367,8 +370,8 @@
   .w-64 {
     width: calc(var(--spacing) * 64);
   }
-  .w-110 {
-    width: calc(var(--spacing) * 110);
+  .w-90 {
+    width: calc(var(--spacing) * 90);
   }
   .w-full {
     width: 100%;
@@ -382,6 +385,9 @@
   .max-w-108 {
     max-width: calc(var(--spacing) * 108);
   }
+  .max-w-137 {
+    max-width: calc(var(--spacing) * 137);
+  }
   .max-w-137\.5 {
     max-width: calc(var(--spacing) * 137.5);
   }
@@ -390,6 +396,9 @@
   }
   .flex-1 {
     flex: 1;
+  }
+  .border-collapse {
+    border-collapse: collapse;
   }
   .transform {
     transform: var(--tw-rotate-x,) var(--tw-rotate-y,) var(--tw-rotate-z,) var(--tw-skew-x,) var(--tw-skew-y,);
@@ -412,11 +421,20 @@
   .justify-end {
     justify-content: flex-end;
   }
+  .justify-start {
+    justify-content: flex-start;
+  }
   .gap-1 {
     gap: var(--spacing);
   }
-  .gap-3 {
-    gap: calc(var(--spacing) * 3);
+  .gap-1\.5 {
+    gap: calc(var(--spacing) * 1.5);
+  }
+  .gap-2 {
+    gap: calc(var(--spacing) * 2);
+  }
+  .gap-2\.5 {
+    gap: calc(var(--spacing) * 2.5);
   }
   .gap-5 {
     gap: calc(var(--spacing) * 5);
@@ -457,6 +475,9 @@
   }
   .border-Cotton-Cream {
     border-color: var(--color-Cotton-Cream);
+  }
+  .border-Dark-Walnut {
+    border-color: var(--color-Dark-Walnut);
   }
   .border-Dark-Walnut\/10 {
     border-color: color-mix(in srgb, #30261c 10%, transparent);
@@ -544,6 +565,9 @@
   }
   .pr-10 {
     padding-right: calc(var(--spacing) * 10);
+  }
+  .pb-2 {
+    padding-bottom: calc(var(--spacing) * 2);
   }
   .pb-2\.5 {
     padding-bottom: calc(var(--spacing) * 2.5);
@@ -647,6 +671,18 @@
   .uppercase {
     text-transform: uppercase;
   }
+  .underline {
+    text-decoration-line: underline;
+  }
+  .outline {
+    outline-style: var(--tw-outline-style);
+    outline-width: 1px;
+  }
+  .transition {
+    transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to, opacity, box-shadow, transform, translate, scale, rotate, filter, -webkit-backdrop-filter, backdrop-filter, display, content-visibility, overlay, pointer-events;
+    transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
+    transition-duration: var(--tw-duration, var(--default-transition-duration));
+  }
   .transition-all {
     transition-property: all;
     transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
@@ -726,6 +762,11 @@
       display: none;
     }
   }
+  .sm\:w-110 {
+    @media (width >= 40rem) {
+      width: calc(var(--spacing) * 110);
+    }
+  }
   .sm\:grid-cols-2 {
     @media (width >= 40rem) {
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -734,6 +775,16 @@
   .sm\:flex-row {
     @media (width >= 40rem) {
       flex-direction: row;
+    }
+  }
+  .sm\:justify-between {
+    @media (width >= 40rem) {
+      justify-content: space-between;
+    }
+  }
+  .sm\:gap-3 {
+    @media (width >= 40rem) {
+      gap: calc(var(--spacing) * 3);
     }
   }
   .sm\:py-0 {
@@ -1080,7 +1131,6 @@
   }
   .swiper {
     width: 100%;
-    height: 100%;
   }
   .swiper-slide {
     text-align: center;
@@ -1127,6 +1177,11 @@
 @property --tw-leading {
   syntax: "*";
   inherits: false;
+}
+@property --tw-outline-style {
+  syntax: "*";
+  inherits: false;
+  initial-value: solid;
 }
 @property --tw-duration {
   syntax: "*";
@@ -1215,6 +1270,7 @@
       --tw-skew-y: initial;
       --tw-border-style: solid;
       --tw-leading: initial;
+      --tw-outline-style: solid;
       --tw-duration: initial;
       --tw-ease: initial;
       --tw-shadow: 0 0 #0000;

@@ -107,11 +107,28 @@ var swiper = new Swiper(".mySwiper2", {
   },
 });
 var swiper = new Swiper(".mySwiper3", {
-  slidesPerView: 3,
-  spaceBetween: 40,
+  slidesPerView: 4,
+  spaceBetween: 10,
   loop: true,
   pagination: {
     el: ".swiper-pagination",
     clickable: true,
+  },
+  navigation: {
+    nextEl: ".dessert-next",
+    prevEl: ".dessert-prev",
+  },
+  breakpoints: {
+    330: {
+      slidesPerView: 1,
+    },
+    910: {
+      slidesPerView: 2,
+      spaceBetween: 20,
+    },
+    1300: {
+      slidesPerView: 3,
+      spaceBetween: 50,
+    },
   },
 });
