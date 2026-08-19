@@ -1132,6 +1132,9 @@
   font-display: swap;
 }
 @layer components {
+  html {
+    scroll-behavior: smooth;
+  }
   .intro {
     background-image: url('../image/headerimage.png');
     background-size: cover;
@@ -1297,6 +1300,10 @@
   }
   .swiper-pagination-bullet-active {
     opacity: 1 !important;
+  }
+  ::selection {
+    background-color: var(--color-Dark-Walnut);
+    color: var(--color-Cotton-Cream);
   }
 }
 @property --tw-rotate-x {

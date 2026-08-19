@@ -103,6 +103,9 @@
   margin-right: auto;
 }
 @layer components {
+  html {
+    scroll-behavior: smooth;
+  }
   .intro {
     @apply bg-[url('../image/headerimage.png')] bg-cover bg-no-repeat bg-[50%_center] md:bg-center;
   }
@@ -194,5 +197,8 @@
 
   .swiper-pagination-bullet-active {
     opacity: 1 !important;
+  }
+  ::selection {
+    @apply bg-Dark-Walnut text-Cotton-Cream;
   }
 }
