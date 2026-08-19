@@ -44,6 +44,32 @@ navcloseBtn.addEventListener("click", function () {
   nav.classList.add("-left-64");
   overlay.classList.remove("overlay--visible");
 });
+overlay.addEventListener("click", function () {
+  nav.classList.remove("left-0");
+  nav.classList.add("-left-64");
+
+  overlay.classList.remove("overlay--visible");
+});
+
+const heartBtns = document.querySelectorAll(".heart-btn");
+
+heartBtns.forEach(function (heartBtn) {
+  heartBtn.addEventListener("click", function () {
+    const outline = this.querySelector(".heart-outline");
+    const filled = this.querySelector(".heart-filled");
+
+    outline.classList.toggle("hidden");
+    filled.classList.toggle("hidden");
+  });
+});
+document.querySelectorAll(".like-btn").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    btn.classList.toggle("fill-red-500");
+    btn.classList.toggle("stroke-red-500");
+    btn.classList.toggle("fill-transparent");
+    btn.classList.toggle("stroke-white");
+  });
+});
 
 //swiper varible
 var swiper = new Swiper(".mySwiper", {

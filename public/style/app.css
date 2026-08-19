@@ -7,6 +7,7 @@
       "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
+    --color-red-500: oklch(63.7% 0.237 25.331);
     --color-black: #000;
     --color-white: #fff;
     --spacing: 0.25rem;
@@ -47,6 +48,8 @@
     --color-Light-Taupe: #544a3e;
     --color-Warm-Coffee: #2a0000;
     --color-Off-White-Gray: #f1f0ee;
+    --color-yellow: #ffb921;
+    --color-gray: #cecece;
     --font-Outfit-Medium: "Outfit-Medium";
     --font-Outfit-Regular: "Outfit-Regular";
     --font-Outfit-SemiBold: "Outfit-SemiBold";
@@ -422,9 +425,6 @@
   .grid-cols-1 {
     grid-template-columns: repeat(1, minmax(0, 1fr));
   }
-  .grid-cols-6 {
-    grid-template-columns: repeat(6, minmax(0, 1fr));
-  }
   .flex-col {
     flex-direction: column;
   }
@@ -553,6 +553,24 @@
   }
   .bg-center {
     background-position: center;
+  }
+  .fill-gray {
+    fill: var(--color-gray);
+  }
+  .fill-red-500 {
+    fill: var(--color-red-500);
+  }
+  .fill-transparent {
+    fill: transparent;
+  }
+  .fill-yellow {
+    fill: var(--color-yellow);
+  }
+  .stroke-red-500 {
+    stroke: var(--color-red-500);
+  }
+  .stroke-white {
+    stroke: var(--color-white);
   }
   .p-3 {
     padding: calc(var(--spacing) * 3);
@@ -720,8 +738,17 @@
   .uppercase {
     text-transform: uppercase;
   }
+  .outline {
+    outline-style: var(--tw-outline-style);
+    outline-width: 1px;
+  }
   .transition-all {
     transition-property: all;
+    transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
+    transition-duration: var(--tw-duration, var(--default-transition-duration));
+  }
+  .transition-colors {
+    transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to;
     transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
     transition-duration: var(--tw-duration, var(--default-transition-duration));
   }
@@ -810,18 +837,6 @@
       }
     }
   }
-  .\*\:hover\:scale-50 {
-    :is(& > *) {
-      &:hover {
-        @media (hover: hover) {
-          --tw-scale-x: 50%;
-          --tw-scale-y: 50%;
-          --tw-scale-z: 50%;
-          scale: var(--tw-scale-x) var(--tw-scale-y);
-        }
-      }
-    }
-  }
   .\*\:hover\:scale-110 {
     :is(& > *) {
       &:hover {
@@ -837,11 +852,6 @@
   .sm\:mx-0 {
     @media (width >= 40rem) {
       margin-inline: 0;
-    }
-  }
-  .sm\:mb-0 {
-    @media (width >= 40rem) {
-      margin-bottom: 0;
     }
   }
   .sm\:flex {
@@ -1003,11 +1013,6 @@
       width: calc(var(--spacing) * 88);
     }
   }
-  .lg\:grid-cols-4 {
-    @media (width >= 64rem) {
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-    }
-  }
   .lg\:grid-cols-6 {
     @media (width >= 64rem) {
       grid-template-columns: repeat(6, minmax(0, 1fr));
@@ -1061,16 +1066,6 @@
   .xl\:flex {
     @media (width >= 80rem) {
       display: flex;
-    }
-  }
-  .xl\:flex-1 {
-    @media (width >= 80rem) {
-      flex: 1;
-    }
-  }
-  .xl\:grid-cols-6 {
-    @media (width >= 80rem) {
-      grid-template-columns: repeat(6, minmax(0, 1fr));
     }
   }
   .xl\:text-4xl {
@@ -1338,6 +1333,11 @@
   syntax: "*";
   inherits: false;
 }
+@property --tw-outline-style {
+  syntax: "*";
+  inherits: false;
+  initial-value: solid;
+}
 @property --tw-duration {
   syntax: "*";
   inherits: false;
@@ -1441,6 +1441,7 @@
       --tw-space-y-reverse: 0;
       --tw-border-style: solid;
       --tw-leading: initial;
+      --tw-outline-style: solid;
       --tw-duration: initial;
       --tw-ease: initial;
       --tw-shadow: 0 0 #0000;
