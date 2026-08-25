@@ -51,6 +51,62 @@ overlay.addEventListener("click", function () {
   overlay.classList.remove("overlay--visible");
 });
 
+// back to top button
+const backToTop = document.querySelector(".back-to-top");
+const shopSection = document.querySelector("#shop");
+
+if (backToTop && shopSection) {
+  let isVisible = false;
+  let ticking = false;
+
+  function getShopTop() {
+    return shopSection.getBoundingClientRect().top + window.scrollY;
+  }
+
+  function updateBackToTop() {
+    const shopTop = getShopTop();
+    const shouldShow = window.scrollY >= shopTop;
+
+    if (shouldShow && !isVisible) {
+      // slide in from the right
+      backToTop.classList.remove("back-to-top--exit");
+      backToTop.classList.add("back-to-top--enter");
+      isVisible = true;
+    } else if (!shouldShow && isVisible) {
+      // fade out in place (no slide)
+      backToTop.classList.remove("back-to-top--enter");
+      backToTop.classList.add("back-to-top--exit");
+      isVisible = false;
+    }
+  }
+
+  // once the fade-out finishes, reset off-screen so it can slide in again next time
+  backToTop.addEventListener("transitionend", function (e) {
+    if (
+      e.propertyName === "opacity" &&
+      backToTop.classList.contains("back-to-top--exit")
+    ) {
+      backToTop.classList.remove("back-to-top--exit");
+    }
+  });
+
+  backToTop.addEventListener("click", function () {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+
+  window.addEventListener("scroll", function () {
+    if (!ticking) {
+      window.requestAnimationFrame(function () {
+        updateBackToTop();
+        ticking = false;
+      });
+      ticking = true;
+    }
+  });
+
+  window.addEventListener("load", updateBackToTop);
+}
+
 const heartBtns = document.querySelectorAll(".heart-btn");
 
 heartBtns.forEach(function (heartBtn) {
