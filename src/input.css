@@ -165,9 +165,105 @@
       opacity: 0;
     }
   }
+  /* loading screen */
+  .loader {
+    @apply fixed inset-0 z-[999] flex items-center justify-center bg-Dark-Walnut;
+    transition:
+      opacity 0.6s ease,
+      visibility 0.6s ease;
+  }
+  .loader--hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+  .loader-content {
+    @apply flex flex-col items-center gap-3 sm:gap-4;
+  }
+  .loader-cup {
+    display: block;
+    width: clamp(110px, 28vw, 168px);
+    height: auto;
+    opacity: 0;
+    transform: translateY(8px) scale(0.85);
+    animation: loader-cup-in 0.5s ease-out forwards;
+  }
+  @keyframes loader-cup-in {
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+  .loader-cup-body {
+    fill: none;
+    stroke: var(--color-Cotton-Cream);
+    stroke-width: 3;
+  }
+  .loader-cup-rim {
+    fill: none;
+    stroke: var(--color-Cotton-Cream);
+    stroke-width: 3;
+  }
+  .loader-cup-handle {
+    fill: none;
+    stroke: var(--color-Cotton-Cream);
+    stroke-width: 3;
+    stroke-linecap: round;
+  }
+  .loader-cup-coffee {
+    fill: var(--color-Warm-Coffee);
+  }
+  .loader-cup-foam {
+    fill: var(--color-Light-Taupe);
+    opacity: 0.9;
+  }
+  /* rising, fading steam wisps, staggered per <g> via inline animation-delay */
+  .loader-steam {
+    transform-box: fill-box;
+    transform-origin: bottom center;
+    opacity: 0;
+    animation: loader-steam-rise 2.4s ease-in-out infinite;
+  }
+  .loader-steam path {
+    fill: none;
+    stroke: var(--color-Cotton-Cream);
+    stroke-width: 2.5;
+    stroke-linecap: round;
+  }
+  @keyframes loader-steam-rise {
+    0% {
+      opacity: 0;
+      transform: translateY(0) scaleY(0.6);
+    }
+    30% {
+      opacity: 0.7;
+    }
+    65% {
+      opacity: 0.45;
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(-14px) scaleY(1.2);
+    }
+  }
+  .loader-caption {
+    @apply font-Outfit-Regular text-Cotton-Cream;
+    font-size: clamp(1.25rem, 4vw, 1.75rem);
+    letter-spacing: 0.04em;
+    opacity: 0;
+    transform: translateY(6px);
+    animation: loader-caption-in 0.5s ease-out 0.35s forwards;
+  }
+  @keyframes loader-caption-in {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
   /* back to top button */
   .back-to-top {
-    @apply fixed bottom-6 right-6 z-30 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-Dark-Walnut flex items-center justify-center border-1 border-Cotton-Cream/50 cursor-pointer;
+    @apply fixed bottom-6 right-6 z-30 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-Dark-Walnut border-2 border-Cotton-Cream flex items-center justify-center shadow-xl cursor-pointer;
     transform: translateX(150%);
     opacity: 0;
     pointer-events: none;
@@ -186,6 +282,109 @@
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.35s ease;
+  }
+
+  /* add-to-cart toast */
+  .toast {
+    @apply fixed top-6 left-1/2 z-[60] flex items-center gap-2 rounded-full bg-Dark-Walnut px-5 py-3 shadow-2xl;
+    transform: translate(-50%, -12px);
+    opacity: 0;
+    visibility: hidden;
+    transition:
+      opacity 0.3s ease,
+      transform 0.3s ease,
+      visibility 0.3s ease;
+  }
+  .toast--visible {
+    transform: translate(-50%, 0);
+    opacity: 1;
+    visibility: visible;
+  }
+
+  /* cart button + badge */
+  .cart-btn {
+    @apply transition-transform duration-200;
+  }
+  .cart-badge {
+    @apply absolute -top-1 -right-1 min-w-[18px] h-[18px] px-1 rounded-full bg-Warm-Coffee text-white text-[11px] font-Poppins-SemiBold flex items-center justify-center leading-none;
+  }
+  .cart-badge--bump {
+    animation: cart-badge-bump 0.35s ease-out;
+  }
+  @keyframes cart-badge-bump {
+    0% {
+      transform: scale(1);
+    }
+    40% {
+      transform: scale(1.35);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  /* cart dropdown (desktop popover) */
+  .cart-dropdown {
+    @apply absolute right-0 top-full mt-3 w-72 sm:w-80 bg-white rounded-2xl shadow-2xl border border-Cotton-Cream p-4 z-30;
+    max-width: calc(100vw - 2rem);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(8px);
+    transition:
+      opacity 0.25s ease,
+      transform 0.25s ease,
+      visibility 0.25s ease;
+  }
+  .cart-dropdown--open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+  /* cart panel (static, embedded in the mobile drawer) */
+  .cart-panel {
+    @apply bg-white rounded-2xl p-4;
+  }
+  /* desktop popover: show exactly 2 rows, scroll for the rest.
+     row = 3rem image + 0.75rem padding + 1px border; gap between rows = 0.75rem */
+  .cart-dropdown .cart-items {
+    @apply overflow-y-auto pr-1;
+    max-height: calc(8.25rem + 2px);
+    overscroll-behavior: contain;
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-Cotton-Cream) transparent;
+  }
+  /* mobile drawer: no inner scroll box — rows get full height and the
+     drawer itself scrolls with the finger */
+  .cart-panel .cart-items {
+    max-height: none;
+    overflow: visible;
+    padding-right: 0;
+  }
+  .cart-item {
+    @apply flex items-center gap-3 border-b border-Cotton-Cream pb-3;
+  }
+  .cart-item-img {
+    @apply w-12 h-12 rounded-lg object-cover shrink-0 bg-Off-White-Gray;
+  }
+  .cart-item-info {
+    @apply flex-1 min-w-0;
+  }
+  .cart-item-remove {
+    @apply w-6 h-6 rounded-full flex items-center justify-center shrink-0 text-Light-Taupe cursor-pointer transition-colors duration-200 hover:bg-Cotton-Cream hover:text-Warm-Coffee;
+  }
+  .cart-total-row {
+    @apply border-t border-Cotton-Cream mt-3 pt-3 flex flex-col gap-3;
+  }
+  .cart-checkout-btn {
+    @apply w-full rounded-lg bg-Dark-Walnut py-2.5 font-Poppins-Medium text-sm text-white cursor-pointer transition-colors duration-300 hover:bg-Warm-Coffee;
+  }
+
+  /* add-to-cart icon button feedback state */
+  .add-to-cart-btn--added {
+    @apply bg-Warm-Coffee border-Warm-Coffee;
+  }
+  .add-to-cart-btn--added svg {
+    @apply text-white;
   }
 
   /* overlay mobile */
