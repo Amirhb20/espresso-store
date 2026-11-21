@@ -251,9 +251,6 @@
   .-left-22 {
     left: calc(var(--spacing) * -22);
   }
-  .-left-64 {
-    left: calc(var(--spacing) * -64);
-  }
   .-left-80 {
     left: calc(var(--spacing) * -80);
   }
@@ -489,6 +486,9 @@
   }
   .gap-3 {
     gap: calc(var(--spacing) * 3);
+  }
+  .gap-4 {
+    gap: calc(var(--spacing) * 4);
   }
   .gap-5 {
     gap: calc(var(--spacing) * 5);
@@ -1622,8 +1622,6 @@
     padding-right: var(--spacing);
     max-height: calc(8.25rem + 2px);
     overscroll-behavior: contain;
-    scrollbar-width: thin;
-    scrollbar-color: var(--color-Cotton-Cream) transparent;
   }
   .cart-panel .cart-items {
     max-height: none;
@@ -1777,6 +1775,63 @@
   ::selection {
     background-color: var(--color-Dark-Walnut);
     color: var(--color-Cotton-Cream);
+  }
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--color-Dark-Walnut);
+    border-radius: 999px;
+  }
+  ::-webkit-scrollbar-corner {
+    background: var(--color-Dark-Walnut);
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: var(--color-Cotton-Cream);
+    background-clip: padding-box;
+    border: 2px solid transparent;
+    border-radius: 999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: color-mix( in srgb, #e2d9c8 78%, #544a3e );
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: color-mix( in srgb, var(--color-Cotton-Cream) 78%, var(--color-Light-Taupe) );
+    }
+  }
+  .nav::-webkit-scrollbar {
+    width: 5px;
+  }
+  .nav::-webkit-scrollbar-thumb {
+    border-width: 0;
+  }
+  .cart-dropdown .cart-items::-webkit-scrollbar {
+    width: 5px;
+  }
+  .cart-dropdown .cart-items::-webkit-scrollbar-track {
+    background: var(--color-Off-White-Gray);
+    border-radius: 999px;
+  }
+  .cart-dropdown .cart-items::-webkit-scrollbar-thumb {
+    background-color: var(--color-Light-Taupe);
+    border-width: 0;
+  }
+  .cart-dropdown .cart-items::-webkit-scrollbar-thumb:hover {
+    background-color: var(--color-Dark-Walnut);
+  }
+  @supports not selector(::-webkit-scrollbar) {
+    html {
+      scrollbar-width: thin;
+      scrollbar-color: var(--color-Cotton-Cream) var(--color-Dark-Walnut);
+    }
+    .nav {
+      scrollbar-width: thin;
+      scrollbar-color: var(--color-Cotton-Cream) var(--color-Dark-Walnut);
+    }
+    .cart-dropdown .cart-items {
+      scrollbar-width: thin;
+      scrollbar-color: var(--color-Light-Taupe) var(--color-Off-White-Gray);
+    }
   }
 }
 @property --tw-rotate-x {

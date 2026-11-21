@@ -350,8 +350,6 @@
     @apply overflow-y-auto pr-1;
     max-height: calc(8.25rem + 2px);
     overscroll-behavior: contain;
-    scrollbar-width: thin;
-    scrollbar-color: var(--color-Cotton-Cream) transparent;
   }
   /* mobile drawer: no inner scroll box — rows get full height and the
      drawer itself scrolls with the finger */
@@ -422,5 +420,76 @@
   }
   ::selection {
     @apply bg-Dark-Walnut text-Cotton-Cream;
+  }
+
+  /* ---------- scrollbars ---------- */
+  /* main page: Dark-Walnut track, Cotton-Cream thumb, 10px wide (6px visible
+     thumb thanks to the transparent border), darker thumb on hover */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--color-Dark-Walnut);
+    border-radius: 999px;
+  }
+  ::-webkit-scrollbar-corner {
+    background: var(--color-Dark-Walnut);
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: var(--color-Cotton-Cream);
+    background-clip: padding-box;
+    border: 2px solid transparent;
+    border-radius: 999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    /* Cotton-Cream nudged toward Light-Taupe: darker, but still readable on the dark track */
+    background-color: color-mix(
+      in srgb,
+      var(--color-Cotton-Cream) 78%,
+      var(--color-Light-Taupe)
+    );
+  }
+
+  /* mobile drawer (dark surface): same palette, slimmer 5px */
+  .nav::-webkit-scrollbar {
+    width: 5px;
+  }
+  .nav::-webkit-scrollbar-thumb {
+    border-width: 0;
+  }
+
+  /* cart popover (white surface): inverted for contrast, slim 5px */
+  .cart-dropdown .cart-items::-webkit-scrollbar {
+    width: 5px;
+  }
+  .cart-dropdown .cart-items::-webkit-scrollbar-track {
+    background: var(--color-Off-White-Gray);
+    border-radius: 999px;
+  }
+  .cart-dropdown .cart-items::-webkit-scrollbar-thumb {
+    background-color: var(--color-Light-Taupe);
+    border-width: 0;
+  }
+  .cart-dropdown .cart-items::-webkit-scrollbar-thumb:hover {
+    background-color: var(--color-Dark-Walnut);
+  }
+
+  /* Firefox (no ::-webkit-scrollbar): standard properties. These are gated with
+     @supports because Chrome 121+ ignores the ::-webkit-scrollbar rules above
+     (and their hover state) as soon as scrollbar-color/width is set. */
+  @supports not selector(::-webkit-scrollbar) {
+    html {
+      scrollbar-width: thin;
+      scrollbar-color: var(--color-Cotton-Cream) var(--color-Dark-Walnut);
+    }
+    .nav {
+      scrollbar-width: thin;
+      scrollbar-color: var(--color-Cotton-Cream) var(--color-Dark-Walnut);
+    }
+    .cart-dropdown .cart-items {
+      scrollbar-width: thin;
+      scrollbar-color: var(--color-Light-Taupe) var(--color-Off-White-Gray);
+    }
   }
 }
