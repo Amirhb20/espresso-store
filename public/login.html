@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login | Coffea</title>
+    <meta name="description" content="Sign in or create your Coffea account." />
+    <!-- account pages should not show up in search results -->
+    <meta name="robots" content="noindex" />
+    <meta name="theme-color" content="#111213" />
+    <link rel="stylesheet" href="./style/app.css" />
+    <link rel="icon" type="image/png" href="./image/icon site.png" />
+  </head>
+  <body class="bg-Espresso-Black">
+    <!--svg -->
+    <svg class="hidden">
+      <symbol
+        id="arrow-left"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18"
+        />
+      </symbol>
+      <symbol
+        id="eye"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z"
+        />
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
+        />
+      </symbol>
+      <symbol
+        id="eye-slash"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M3.98 8.223A10.477 10.477 0 0 0 1.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.451 10.451 0 0 1 12 4.5c4.756 0 8.773 3.162 10.065 7.498a10.522 10.522 0 0 1-4.293 5.774M6.228 6.228 3 3m3.228 3.228 3.65 3.65m7.894 7.894L21 21m-3.228-3.228-3.65-3.65m0 0a3 3 0 1 0-4.243-4.243m4.242 4.242L9.88 9.88"
+        />
+      </symbol>
+    </svg>
+    <!--
+      Forms below: From Uiverse.io by ammarsaa - https://uiverse.io/ammarsaa/chatty-firefox-25
+      MIT License, Copyright (c) https://uiverse.io/Yaya12085/short-turtle-53 AND https://uiverse.io/micaelgomestavares/purple-cow-92, ammarsaa (Syed Ammar Ahmed)
+    -->
+    <div class="auth-page">
+      <!-- way back to the main site -->
+      <a class="auth-back" href="./index.html">
+        <svg class="w-4 h-4"><use href="#arrow-left"></use></svg>
+        Back to home
+      </a>
+      <!-- photo: ~70% on the left, slanted edge (decorative) -->
+      <div class="auth-art" aria-hidden="true">
+        <img src="./image/login-coffee.jpg" alt="" fetchpriority="high" />
+      </div>
+      <main class="auth-panel">
+        <!-- sign up (original Uiverse form) -->
+        <form class="auth-form" id="signupForm">
+          <p class="auth-title">Register</p>
+          <p class="auth-message">Signup now and get full access to our app.</p>
+          <div class="auth-row">
+            <label class="auth-field">
+              <input
+                class="auth-input"
+                type="text"
+                name="firstName"
+                autocomplete="given-name"
+                placeholder=""
+                required
+              />
+              <span>Firstname</span>
+            </label>
+            <label class="auth-field">
+              <input
+                class="auth-input"
+                type="text"
+                name="lastName"
+                autocomplete="family-name"
+                placeholder=""
+                required
+              />
+              <span>Lastname</span>
+            </label>
+          </div>
+          <label class="auth-field">
+            <input
+              class="auth-input"
+              type="email"
+              name="email"
+              autocomplete="email"
+              placeholder=""
+              required
+            />
+            <span>Email</span>
+          </label>
+          <label class="auth-field">
+            <input
+              class="auth-input"
+              id="signupPassword"
+              type="password"
+              name="password"
+              autocomplete="new-password"
+              placeholder=""
+              minlength="6"
+              data-password
+              required
+            />
+            <span>Password</span>
+            <button
+              class="auth-eye"
+              type="button"
+              aria-label="Show password"
+              aria-pressed="false"
+            >
+              <svg class="w-5 h-5"><use href="#eye"></use></svg>
+            </button>
+          </label>
+          <label class="auth-field">
+            <input
+              class="auth-input"
+              id="signupConfirm"
+              type="password"
+              name="confirm"
+              autocomplete="new-password"
+              placeholder=""
+              data-password
+              required
+            />
+            <span>Confirm password</span>
+            <button
+              class="auth-eye"
+              type="button"
+              aria-label="Show password"
+              aria-pressed="false"
+            >
+              <svg class="w-5 h-5"><use href="#eye"></use></svg>
+            </button>
+          </label>
+          <button class="auth-submit" type="submit">Submit</button>
+          <p class="auth-error" role="alert" hidden></p>
+          <p class="auth-success" role="status" aria-live="polite" hidden></p>
+          <p class="auth-switch">
+            Already have an account?
+            <a href="#login" data-auth-show="login">Signin</a>
+          </p>
+        </form>
+
+        <!-- login (same component, fewer fields) -->
+        <form class="auth-form" id="loginForm" hidden>
+          <p class="auth-title">Login</p>
+          <p class="auth-message">Welcome back. Sign in to continue.</p>
+          <label class="auth-field">
+            <input
+              class="auth-input"
+              type="email"
+              name="email"
+              autocomplete="email"
+              placeholder=""
+              required
+            />
+            <span>Email</span>
+          </label>
+          <label class="auth-field">
+            <input
+              class="auth-input"
+              type="password"
+              name="password"
+              autocomplete="current-password"
+              placeholder=""
+              data-password
+              required
+            />
+            <span>Password</span>
+            <button
+              class="auth-eye"
+              type="button"
+              aria-label="Show password"
+              aria-pressed="false"
+            >
+              <svg class="w-5 h-5"><use href="#eye"></use></svg>
+            </button>
+          </label>
+          <button class="auth-submit" type="submit">Submit</button>
+          <p class="auth-error" role="alert" hidden></p>
+          <p class="auth-success" role="status" aria-live="polite" hidden></p>
+          <p class="auth-switch">
+            Don't have an account?
+            <a href="#signup" data-auth-show="signup">Sign up</a>
+          </p>
+        </form>
+      </main>
+    </div>
+    <script src="./script/auth.js"></script>
+  </body>
+</html>

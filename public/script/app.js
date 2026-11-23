@@ -355,6 +355,94 @@ document.addEventListener("click", function (e) {
   }
 });
 
+// account state in the header (session is written by auth.js on login / sign up)
+const SESSION_KEY = "coffea-session";
+
+function getSession() {
+  try {
+    const session = JSON.parse(window.localStorage.getItem(SESSION_KEY));
+    return session && session.email ? session : null;
+  } catch (e) {
+    return null;
+  }
+}
+
+function setText(selector, text) {
+  document.querySelectorAll(selector).forEach(function (el) {
+    el.textContent = text; // textContent, never innerHTML: names are user input
+  });
+}
+
+function closeUserMenus() {
+  document.querySelectorAll(".user-dropdown--open").forEach(function (d) {
+    d.classList.remove("user-dropdown--open");
+  });
+  document.querySelectorAll(".user-menu-btn").forEach(function (b) {
+    b.setAttribute("aria-expanded", "false");
+  });
+}
+
+function renderAuthState() {
+  const session = getSession();
+
+  document.querySelectorAll("[data-login-link]").forEach(function (el) {
+    el.classList.toggle("hidden", !!session);
+  });
+  document.querySelectorAll("[data-user-menu]").forEach(function (el) {
+    el.classList.toggle("hidden", !session);
+  });
+
+  if (!session) {
+    closeUserMenus();
+    return;
+  }
+  const first = (session.firstName || "").trim();
+  const full = (first + " " + (session.lastName || "")).trim();
+  setText("[data-user-initial]", (first || session.email).charAt(0));
+  setText("[data-user-first]", first || session.email);
+  setText("[data-user-fullname]", full || session.email);
+  setText("[data-user-email]", session.email);
+}
+
+renderAuthState();
+window.addEventListener("storage", function (e) {
+  if (e.key === SESSION_KEY) renderAuthState(); // signed in/out in another tab
+});
+
+document.addEventListener("click", function (e) {
+  const userBtn = e.target.closest(".user-menu-btn");
+  if (userBtn) {
+    const dropdown = userBtn.parentElement.querySelector(".user-dropdown");
+    const isOpen = dropdown.classList.contains("user-dropdown--open");
+    closeUserMenus();
+    if (!isOpen) {
+      dropdown.classList.add("user-dropdown--open");
+      userBtn.setAttribute("aria-expanded", "true");
+    }
+    return;
+  }
+
+  if (e.target.closest("[data-logout]")) {
+    try {
+      window.localStorage.removeItem(SESSION_KEY);
+    } catch (err) {
+      /* storage blocked: nothing to clear */
+    }
+    closeUserMenus();
+    renderAuthState();
+    showToast("You have been signed out");
+    return;
+  }
+
+  if (!e.target.closest(".user-dropdown")) {
+    closeUserMenus();
+  }
+});
+
+document.addEventListener("keydown", function (e) {
+  if (e.key === "Escape") closeUserMenus();
+});
+
 //swiper varible
 var swiper = new Swiper(".mySwiper", {
   slidesPerView: 4,

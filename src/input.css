@@ -76,6 +76,10 @@
   --color-Off-White-Gray: #f1f0ee;
   --color-yellow: #ffb921;
   --color-gray: #cecece;
+  /* login page, sampled from the coffee photo */
+  --color-Espresso-Black: #111213;
+  --color-Charcoal-Slate: #1a1b1f;
+  --color-Latte-Caramel: #daa17b;
   /* font */
   --font-Outfit-Medium: "Outfit-Medium";
   --font-Outfit-Regular: "Outfit-Regular";
@@ -377,6 +381,46 @@
     @apply w-full rounded-lg bg-Dark-Walnut py-2.5 font-Poppins-Medium text-sm text-white cursor-pointer transition-colors duration-300 hover:bg-Warm-Coffee;
   }
 
+  /* account menu (header) */
+  .user-menu-btn {
+    @apply flex items-center gap-2 p-1 lg:pr-3 h-8 lg:h-10 rounded-full bg-white cursor-pointer;
+  }
+  .user-avatar {
+    @apply flex items-center justify-center shrink-0 w-6 h-6 lg:w-8 lg:h-8 rounded-full bg-Dark-Walnut text-white text-xs lg:text-sm font-Poppins-SemiBold uppercase;
+  }
+  .user-avatar--lg {
+    /* drawer is dark and its links are forced white, so use a translucent white disc */
+    @apply w-10 h-10 text-base bg-white/15 border border-white/30;
+  }
+  .user-name {
+    @apply hidden lg:inline max-w-24 truncate text-sm font-Poppins-Medium text-Dark-Walnut;
+  }
+  .user-chevron {
+    @apply hidden lg:block transition-transform duration-200;
+  }
+  .user-menu-btn[aria-expanded="true"] .user-chevron {
+    transform: rotate(180deg);
+  }
+  .user-dropdown {
+    @apply absolute right-0 top-full mt-3 w-64 bg-white rounded-2xl shadow-2xl border border-Cotton-Cream p-4 z-30 flex flex-col gap-0.5;
+    max-width: calc(100vw - 2rem);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(8px);
+    transition:
+      opacity 0.25s ease,
+      transform 0.25s ease,
+      visibility 0.25s ease;
+  }
+  .user-dropdown--open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+  .user-logout {
+    @apply mt-3 w-full flex items-center justify-center gap-2 rounded-lg bg-Dark-Walnut py-2.5 font-Poppins-Medium text-sm text-white cursor-pointer transition-colors duration-300 hover:bg-Warm-Coffee;
+  }
+
   /* add-to-cart icon button feedback state */
   .add-to-cart-btn--added {
     @apply bg-Warm-Coffee border-Warm-Coffee;
@@ -420,6 +464,281 @@
   }
   ::selection {
     @apply bg-Dark-Walnut text-Cotton-Cream;
+  }
+
+  /* ---------- auth page (login / sign up) ----------
+     Form: From Uiverse.io by ammarsaa - https://uiverse.io/ammarsaa/chatty-firefox-25
+     MIT License, Copyright (c) https://uiverse.io/Yaya12085/short-turtle-53 AND https://uiverse.io/micaelgomestavares/purple-cow-92, ammarsaa (Syed Ammar Ahmed)
+     Class names are prefixed with "auth-" so they cannot collide with Tailwind
+     utilities (the original ".flex" would have). Colors come from the site theme. */
+
+  /* page layout: photo on the left (~70%) with a slanted right edge, form on the right (~30%).
+     Below 1024px the photo becomes a dimmed full-page background instead. */
+  .auth-page {
+    --auth-slant: 2.5rem;
+    --auth-panel-w: max(30%, 420px);
+    --auth-panel-bg: var(--color-Espresso-Black);
+    --auth-bg: var(--color-Charcoal-Slate);
+    --auth-border: color-mix(in srgb, white 12%, var(--auth-bg));
+    --auth-field: color-mix(in srgb, white 8%, var(--auth-bg));
+    --auth-accent: var(--color-Latte-Caramel);
+    --auth-on-accent: var(--color-Espresso-Black);
+    position: relative;
+    min-height: 100dvh;
+    background-color: var(--auth-panel-bg);
+  }
+  .auth-art {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    background-color: var(--auth-panel-bg);
+  }
+  .auth-art img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 80% center;
+  }
+  .auth-art::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: color-mix(in srgb, var(--auth-panel-bg) 80%, transparent);
+  }
+  .auth-panel {
+    position: relative;
+    z-index: 10;
+    min-height: 100dvh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4.5rem 1rem 2rem;
+  }
+  @media (min-width: 64rem) {
+    .auth-art {
+      right: auto;
+      width: calc(100% - var(--auth-panel-w) + var(--auth-slant));
+      /* slanted edge: wide at the top, leaning in toward the bottom */
+      clip-path: polygon(
+        0 0,
+        100% 0,
+        calc(100% - var(--auth-slant)) 100%,
+        0 100%
+      );
+    }
+    .auth-art::after {
+      display: none;
+    }
+    /* zoom out: the photo fills the full width but only 80% of the height, so more of
+       the scene shows; its top/bottom edges fade into the page color */
+    .auth-art img {
+      position: absolute;
+      left: 0;
+      top: 10%;
+      height: 80%;
+      object-position: 88% center;
+      -webkit-mask-image: linear-gradient(
+        to bottom,
+        transparent 0,
+        #000 16%,
+        #000 84%,
+        transparent 100%
+      );
+      mask-image: linear-gradient(
+        to bottom,
+        transparent 0,
+        #000 16%,
+        #000 84%,
+        transparent 100%
+      );
+    }
+    .auth-panel {
+      margin-left: auto;
+      width: var(--auth-panel-w);
+      padding: 2rem 1rem 2rem calc(var(--auth-slant) + 1rem);
+    }
+  }
+
+  /* back to home link (top-left, over the photo) */
+  .auth-back {
+    @apply absolute top-5 left-5 lg:top-7 lg:left-8 z-20 inline-flex items-center gap-2 text-sm font-Outfit-Medium;
+    color: rgba(255, 255, 255, 0.8);
+    transition: color 0.2s ease;
+  }
+  .auth-back svg {
+    transition: transform 0.25s ease;
+  }
+  .auth-back:hover,
+  .auth-back:focus-visible {
+    color: var(--auth-accent);
+    outline: none;
+  }
+  .auth-back:hover svg,
+  .auth-back:focus-visible svg {
+    transform: translateX(-3px);
+  }
+
+  /* form card */
+  .auth-form {
+    @apply relative flex flex-col gap-2.5 w-full max-w-[360px] p-5 rounded-2xl text-white font-Outfit-Regular;
+    background-color: var(--auth-bg);
+    border: 1px solid var(--auth-border);
+  }
+  .auth-title {
+    @apply relative flex items-center pl-7 text-2xl font-PlayfairDisplay-Bold tracking-[-0.5px];
+    color: var(--auth-accent);
+  }
+  .auth-title::before,
+  .auth-title::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: var(--auth-accent);
+  }
+  .auth-title::after {
+    animation: auth-pulse 1s linear infinite;
+  }
+  .auth-message,
+  .auth-switch {
+    @apply text-sm;
+    color: rgba(255, 255, 255, 0.7);
+  }
+  .auth-switch {
+    @apply text-center font-Outfit-Regular;
+  }
+  .auth-switch a {
+    @apply font-Outfit-Medium pb-0.5;
+    color: var(--auth-accent);
+    background: linear-gradient(currentColor, currentColor) 0 100% / 0 1px
+      no-repeat;
+    transition:
+      background-size 0.35s ease,
+      opacity 0.2s ease;
+  }
+  .auth-switch a:hover,
+  .auth-switch a:focus-visible {
+    background-size: 100% 1px;
+    outline: none;
+  }
+  .auth-switch a:active {
+    opacity: 0.7;
+  }
+
+  /* switching between login and sign up */
+  .auth-form--out > * {
+    opacity: 0;
+    transform: translate(calc(var(--auth-dir, 1) * -10px), 0);
+    transition:
+      opacity 0.18s ease,
+      transform 0.18s ease;
+  }
+  .auth-form {
+    transition: height 0.42s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .auth-form--in > * {
+    animation: auth-rise 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation-delay: calc(var(--auth-i, 0) * 45ms);
+  }
+  @keyframes auth-rise {
+    from {
+      opacity: 0;
+      transform: translate(calc(var(--auth-dir, 0) * 22px), 12px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .auth-form,
+    .auth-form--out > *,
+    .auth-form--in > *,
+    .auth-switch a {
+      transition: none;
+      animation: none;
+    }
+  }
+  .auth-row {
+    @apply flex w-full gap-2;
+  }
+  .auth-row > .auth-field {
+    @apply flex-1 min-w-0;
+  }
+  .auth-field {
+    @apply relative block;
+  }
+  .auth-input {
+    @apply w-full text-[15px] font-Outfit-Regular text-white outline-none rounded-[10px];
+    padding: 22px 12px 6px 12px;
+    background-color: var(--auth-field);
+    border: 1px solid rgba(105, 105, 105, 0.397);
+    transition: border-color 0.3s ease;
+  }
+  .auth-input:focus {
+    border-color: var(--auth-accent);
+  }
+  .auth-input + span {
+    @apply absolute left-3 top-0 text-[0.9em] cursor-text pointer-events-none font-Outfit-Regular;
+    color: rgba(255, 255, 255, 0.5);
+    transition: 0.3s ease;
+  }
+  .auth-input:placeholder-shown + span {
+    top: 14px;
+    font-size: 0.95em;
+  }
+  .auth-input:focus + span,
+  .auth-input:valid + span {
+    top: 5px;
+    font-size: 0.7em;
+    font-weight: 600;
+    color: var(--auth-accent);
+  }
+  /* password fields leave room for the show/hide eye */
+  .auth-input[data-password] {
+    padding-right: 40px;
+  }
+  .auth-eye {
+    @apply absolute right-1.5 top-1/2 -translate-y-1/2 w-8 h-8 flex items-center justify-center rounded-full cursor-pointer transition-colors duration-200;
+    color: rgba(255, 255, 255, 0.6);
+  }
+  .auth-eye:hover,
+  .auth-eye:focus-visible {
+    color: var(--auth-accent);
+    outline: none;
+  }
+  .auth-submit {
+    @apply border-none outline-none py-2.5 rounded-[10px] text-[15px] font-Poppins-Medium cursor-pointer;
+    color: var(--auth-on-accent);
+    background-color: var(--auth-accent);
+  }
+  .auth-submit:hover {
+    background-color: color-mix(in srgb, var(--auth-accent) 59%, transparent);
+  }
+  .auth-submit:disabled {
+    @apply cursor-wait opacity-70;
+  }
+  .auth-success,
+  .auth-error {
+    @apply text-center text-sm font-Outfit-Medium;
+  }
+  .auth-success {
+    color: var(--auth-accent);
+  }
+  .auth-error {
+    @apply text-red-400;
+  }
+  @keyframes auth-pulse {
+    from {
+      transform: scale(0.9);
+      opacity: 1;
+    }
+    to {
+      transform: scale(1.8);
+      opacity: 0;
+    }
   }
 
   /* ---------- scrollbars ---------- */
