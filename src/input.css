@@ -100,7 +100,8 @@
 }
 
 @utility container {
-  width: 1400px;
+  width: 100%;
+  max-width: 1400px;
   padding-left: 20px;
   padding-right: 20px;
   margin-left: auto;
@@ -109,6 +110,10 @@
 @layer components {
   html {
     scroll-behavior: smooth;
+  }
+  /* safety net: never show a horizontal scrollbar (Firefox/Safari/Chrome) */
+  body {
+    overflow-x: clip;
   }
   .intro {
     @apply bg-[url('../image/headerimage.png')] bg-cover bg-no-repeat bg-[50%_center] md:bg-center;
@@ -371,8 +376,14 @@
   .cart-item-info {
     @apply flex-1 min-w-0;
   }
-  .cart-item-remove {
-    @apply w-6 h-6 rounded-full flex items-center justify-center shrink-0 text-Light-Taupe cursor-pointer transition-colors duration-200 hover:bg-Cotton-Cream hover:text-Warm-Coffee;
+  .qty-stepper {
+    @apply flex items-center shrink-0 h-7 rounded-full border border-Cotton-Cream bg-white;
+  }
+  .qty-btn {
+    @apply w-7 h-full flex items-center justify-center rounded-full text-Dark-Walnut text-base leading-none cursor-pointer select-none transition-colors duration-200 hover:bg-Cotton-Cream focus-visible:outline-2 focus-visible:outline-Dark-Walnut;
+  }
+  .qty-value {
+    @apply min-w-5 px-0.5 text-center font-Poppins-Medium text-xs text-Dark-Walnut;
   }
   .cart-total-row {
     @apply border-t border-Cotton-Cream mt-3 pt-3 flex flex-col gap-3;

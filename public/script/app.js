@@ -178,6 +178,19 @@ function parsePrice(text) {
   return match ? parseFloat(match[0]) : 0;
 }
 
+function escapeHtml(value) {
+  const map = {
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    '"': "&quot;",
+    "'": "&#39;",
+  };
+  return String(value).replace(/[&<>"']/g, function (ch) {
+    return map[ch];
+  });
+}
+
 function renderCart() {
   const cart = getCart();
   const totalQty = cart.reduce(function (sum, item) {
@@ -217,19 +230,33 @@ function renderCart() {
     cart.forEach(function (item) {
       const li = document.createElement("li");
       li.className = "cart-item";
+      const id = escapeHtml(item.id);
       li.innerHTML =
         '<img class="cart-item-img" src="' +
-        (item.image || "") +
+        escapeHtml(item.image || "") +
         '" alt="" onerror="this.style.display=\'none\'" />' +
         '<div class="cart-item-info"><p class="font-Outfit-Medium text-Dark-Walnut text-sm truncate">' +
-        item.name +
-        ' <span class="text-Light-Taupe">\u00d7' +
-        item.qty +
-        '</span></p><p class="font-Outfit-Regular text-xs text-Light-Taupe">' +
+        escapeHtml(item.name) +
+        '</p><p class="font-Outfit-Regular text-xs text-Light-Taupe">' +
         formatPrice(item.price) +
-        '</p></div><button class="cart-item-remove" data-id="' +
-        item.id +
-        '" aria-label="Remove item"><svg class="w-3.5 h-3.5"><use href="#x-mark"></use></svg></button>';
+        "</p></div>" +
+        '<div class="qty-stepper" role="group" aria-label="Quantity of ' +
+        escapeHtml(item.name) +
+        '">' +
+        '<button type="button" class="qty-btn" data-qty-action="dec" data-id="' +
+        id +
+        '" aria-label="' +
+        (item.qty === 1 ? "Remove " : "Decrease quantity of ") +
+        escapeHtml(item.name) +
+        '">\u2212</button>' +
+        '<span class="qty-value" aria-live="polite">' +
+        item.qty +
+        "</span>" +
+        '<button type="button" class="qty-btn" data-qty-action="inc" data-id="' +
+        id +
+        '" aria-label="Increase quantity of ' +
+        escapeHtml(item.name) +
+        '">+</button></div>';
       list.appendChild(li);
     });
   });
@@ -261,19 +288,19 @@ function addToCart(id, name, price, image) {
   showToast(name + " added to cart");
 }
 
-function removeFromCart(id) {
+// delta = +1 / -1; reaching 0 removes the item
+function changeQty(id, delta) {
   let cart = getCart();
   const existing = cart.find(function (item) {
     return item.id === id;
   });
+  if (!existing) return;
 
-  if (existing) {
-    existing.qty -= 1;
-    if (existing.qty <= 0) {
-      cart = cart.filter(function (item) {
-        return item.id !== id;
-      });
-    }
+  existing.qty += delta;
+  if (existing.qty <= 0) {
+    cart = cart.filter(function (item) {
+      return item.id !== id;
+    });
   }
 
   saveCart(cart);
@@ -289,6 +316,11 @@ function closeAllCartDropdowns() {
 }
 
 renderCart();
+
+// keep the cart in sync across tabs
+window.addEventListener("storage", function (e) {
+  if (e.key === CART_STORAGE_KEY) renderCart();
+});
 
 document.addEventListener("click", function (e) {
   const addBtn = e.target.closest(".add-to-cart-btn");
@@ -344,9 +376,20 @@ document.addEventListener("click", function (e) {
     return;
   }
 
-  const removeBtn = e.target.closest(".cart-item-remove");
-  if (removeBtn) {
-    removeFromCart(removeBtn.dataset.id);
+  const qtyBtn = e.target.closest(".qty-btn");
+  if (qtyBtn) {
+    const id = qtyBtn.dataset.id;
+    const action = qtyBtn.dataset.qtyAction;
+    const display = qtyBtn.closest(".cart-display");
+    changeQty(id, action === "inc" ? 1 : -1);
+
+    // the list is re-rendered, so give keyboard focus back to the same button
+    if (display) {
+      const next = display.querySelector(
+        '.qty-btn[data-qty-action="' + action + '"][data-id="' + id + '"]',
+      );
+      if (next) next.focus();
+    }
     return;
   }
 
